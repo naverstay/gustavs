@@ -97,16 +97,19 @@ body {
     padding-left: 53px;
     font: 18px $GothamProMedium;
     letter-spacing: -.02em;
+  }
+}
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 34px;
-      height: 30px;
-      background: url(../i/cube.png) no-repeat 0 0;
-    }
+.mission_icon {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  width: 36px;
+  height: 36px;
+  
+  img {
+    display: block;
   }
 }
 
@@ -318,10 +321,9 @@ body {
 .why_img {
   position: absolute;
   top: 0;
-  left: 10px;
-  background: #ededed;
-  width: 50px;
-  height: 50px;
+  left: -5px;
+  width: 75px;
+  height: 75px;
 
   img {
     display: block;
@@ -768,11 +770,11 @@ html .price_col_tabs {
   filter: blur(1px);
   opacity: .5;
   pointer-events: none;
-  
+
   .task_estimation {
     display: block;
   }
-  
+
   .show_example & {
     display: block;
   }
@@ -1328,7 +1330,7 @@ html .price_col_tabs {
 
 .popup {
   display: none;
-  
+
   &.popup_v1 {
     background: #fff;
     padding: 0 40px 10px;
