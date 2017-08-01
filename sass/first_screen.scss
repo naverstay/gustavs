@@ -767,6 +767,7 @@ html .price_col_tabs {
   -ms-filter: blur(1px);
   filter: blur(1px);
   opacity: .5;
+  pointer-events: none;
   
   .task_estimation {
     display: block;
@@ -1326,7 +1327,8 @@ html .price_col_tabs {
 }
 
 .popup {
-
+  display: none;
+  
   &.popup_v1 {
     background: #fff;
     padding: 0 40px 10px;

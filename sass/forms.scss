@@ -9,11 +9,11 @@
 
   &.f_input_v1 {
     @include transition_all(background .3s);
-    width: 180px;
+    width: 160px;
     cursor: pointer;
-    padding: 14px 10px;
-    height: 45px;
-    font: 12px/15px $GothamProMedium;
+    padding: 9px 10px;
+    height: 35px;
+    font: 11px/15px $GothamProMedium;
     text-align: left;
     position: relative;
     border: 1px solid $lines;
@@ -98,7 +98,7 @@
   }
 
   &._icon_before {
-    padding-left: 53px;
+    padding-left: 34px;
   }
 }
 

@@ -5,8 +5,8 @@
   top: 0;
   right: 0;
   left: 0;
-  padding-top: 53px;
-  padding-bottom: 30px;
+  padding-top: 72px;
+  padding-bottom: 20px;
   z-index: 10;
   border-bottom: 1px solid $lines;
   background: rgb(255, 255, 255);
@@ -18,17 +18,16 @@
   .section_inner {
     position: relative;
   }
-  
+
   &._fixed {
     position: fixed;
     top: 0 !important;
   }
-  
 }
 
 .logo_block {
   float: left;
-  padding-right: 25px;
+  padding-right: 35px;
 }
 
 .logo {
@@ -92,7 +91,7 @@
     cursor: default;
     color: $blue;
     font-family: $GothamProBold;
-    
+
     &:after {
       content: ' +';
     }
@@ -127,17 +126,30 @@
 
 .user_menu {
   float: right;
-  line-height: 45px;
+  line-height: 35px;
   max-width: 50%;
 
   .header & {
+    position: relative;
     padding-left: 5px;
-    border-left: 1px solid $lines;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 1px;
+      bottom: 1px;
+      border-left: 1px solid $lines;
+    }
   }
 
   li {
     float: left;
-    padding-left: 33px;
+    padding-left: 55px;
+
+    &:first-child {
+      padding-left: 10px;
+    }
   }
 }
 
@@ -145,8 +157,8 @@
   display: inline-block;
   vertical-align: middle;
   color: $default_t_color;
-  font: 12px/1.2 $GothamProMedium;
-  letter-spacing: .08em;
+  font: 16px/1.2 $GothamProRegular;
+  letter-spacing: .095em;
 
   .footer & {
     @include transition_all(opacity .3s);

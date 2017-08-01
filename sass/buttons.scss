@@ -1,18 +1,17 @@
 //************  buttons
 
 .btn_v1 {
-  height: 45px;
+  height: 35px;
 
   &.header_btn {
     display: block;
     cursor: pointer;
-    padding: 14px 28px;
-    font: 12px/15px $GothamProMedium;
-    text-align: center;
+    padding: 9px 25px;
+    font: 11px/15px $GothamProMedium;
     position: relative;
 
     &._megamenu {
-      width: 157px;
+      width: 142px;
       white-space: nowrap;
       
       .link_text {
@@ -27,20 +26,20 @@
   &.calc_btn {
     display: block;
     cursor: pointer;
-    padding: 12px 26px;
-    font: 12px/15px $GothamProMedium;
+    padding: 10px 25px;
+    font: 11px/15px $GothamProMedium;
     text-align: center;
     position: relative;
     text-transform: uppercase;
     letter-spacing: .05em;
-    margin-left: 8px;
+    margin-left: 10px;
   }
 
   &.login_btn {
     display: block;
     cursor: pointer;
     text-transform: uppercase;
-    padding: 15px 32px;
+    padding: 10px 32px;
     font: 12px/15px $GothamProMedium;
     text-align: center;
     letter-spacing: .1em;
@@ -90,7 +89,7 @@
   }
 
   &._icon_before {
-    padding-left: 53px;
+    padding-left: 32px;
   }
 }
 
@@ -98,12 +97,12 @@
   @include transition_all(color .3s);
   position: absolute;
   top: 50%;
-  left: 19px;
+  left: 8px;
   text-align: center;
   width: 20px;
   height: 30px;
-  margin-top: -13px;
-  font-size: 20px;
+  margin-top: -14px;
+  font-size: 18px;
   line-height: 30px;
   pointer-events: none;
 }
@@ -223,7 +222,7 @@
 
 .btn_blue_2 {
   @include transition_all(background .3s, color .3s);
-  border: 3px solid $blue;
+  //border: 3px solid $blue;
   background: $blue;
   color: #fff;
 
