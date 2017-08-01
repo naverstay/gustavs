@@ -1,0 +1,566 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Gustavs главная')
+
+  body
+    .wrapper
+      .gl_overlay.glOverlay
+      .base
+        +header()
+
+        .main_content
+          .mission_section
+            .section_inner.clearfix
+              .mission_block
+                h2.block_caption
+                  span Миссия 
+                  span._underline._yellow._big: span Gustavs
+
+                p С помощью немецких технологий делать ремонт для Россиян качественно и быстро.
+
+                ul.mission_options
+                  li Немецкое качество ремонта
+                  li Профессиональные мастера
+                  li Прозрачная смета и график работ
+
+              .mission_hero
+                .hero_img
+                  img(src='i/GUSTAVS.jpg')
+
+                  .hero_text
+                    .hero_caption Дорогие друзья!
+                    p Теперь высокие технологии недорогого и каче&shy;ственного ремонта Вашей квартиры доступны и в&nbsp;Москве
+
+                    p.text_right
+                      span.ff_med
+                        span._underline._blue: span С уважением,
+                        span  Густав Бауман,<br>ген. директор Gustavs
+
+          .step_section
+            .section_inner
+              .step_block
+                ul.step_list
+                  - var koef = 1.3
+                  li
+                    .step_item
+                      .step_index
+                        img(src='svg/01.svg' width=Math.floor(koef * 39) height=Math.floor(koef * 60))
+                      .step_way._way_1-2
+                        img(src='i/way_1-2.png')
+                        
+                      p Выберите дату начала ремонта и тип работ. Сервис автоматически рассчитает стоимость и сроки. 
+                      
+                      //-p Вы выберите 
+                        span.ff_bold.c_blue дату начала ремонта и работу
+                        |  которую необходимо выпол&shy;нить. Сервис рассчитает стоимость работ, материалов и сроки работ.
+
+                  - var koef = 1
+                  li
+                    .step_item
+                      .step_index
+                        img(src='svg/02.svg' width=Math.floor(koef * 50) height=Math.floor(koef * 60))
+                      .step_way._way_2-3
+                        img(src='i/way_2-3.png')
+                      p Ознакомьтесь со сметой, планом-графиком ремонта. Внесите первый минимальный платеж.
+
+                  - var koef = 1.3
+                  li
+                    .step_item
+                      .step_index
+                        img(src='svg/04.svg' width=Math.floor(koef * 41) height=Math.floor(koef * 54))
+                      .step_way._way_3-4
+                        img(src='i/way_3-4.png')
+                        
+                      p Приемка работ осуществляется в личном кабинете. Вы вносите оплату только за выполненные работы.
+
+                  - var koef = 1.3
+                  li
+                    .step_item
+                      .step_index
+                        img(src='svg/03.svg' width=Math.floor(koef * 46) height=Math.floor(koef * 51))
+
+                      p В удобный для Вас день наша профессиональная бригада приедет на объект со всеми необходимыми инструментами, материалами и приступит к ремонту.
+
+                  - var koef = 1.3
+
+                  li._wide
+                    .step_item
+                      .step_index
+                        img(src='svg/05.svg' width=koef * 42 height=koef * 54)
+                      .step_way._way_4-5
+                        img(src='i/way_4-5.png')
+                      .ff_bold.c_blue Ремонт успешно завершен!
+                      p На работы действует гарантия. В качестве бонуса наши мастера сделают уборку и вывезут строительный мусор. Вам останется только наслаждаться успешным результатом!
+
+          #price_section.price_section.priceSection
+            form.section_inner.validateMe.checkoutForm(action='#')
+              .section_caption
+                span Cтоимость вашего 
+                span._underline._yellow: span ремонта
+
+              .price_block
+                .price_col
+                  .price_category
+                    .price_col_caption
+                      .fl
+                        span.price_step_index 1
+                        span Выберите Дату начала работ
+
+                      .fr
+                        .input_w
+                          input#date_inline.datePicker.f_input_v2.f_input(value='30 Июля, 2017' data-correspond='#date_header')
+                          span.dropdown_arrow
+
+                  .price_category
+                    .price_col_caption
+                      .fl
+                        span.price_step_index 2
+                        span Выбирайте работы которые необходимо выполнить
+
+                    .price_col_box._price_stack.mCSB
+                      .price_box_caption.collapseBtn._opened Стены
+                      .expandBlock.price_box_expand(style='display:block;')
+                        .price_row
+                          .fl
+                            .task_name Поклейка обоев
+                          .fr
+                            +task_add('shpalery')
+
+                        .price_row
+                          .fl
+                            .task_name Покраска стен
+                          .fr
+                            +task_add('walls')
+
+                        .price_row
+                          .fl
+                            .task_name Укладка плитки
+                          .fr
+                            +task_add('tiles')
+
+                      .price_box_caption.collapseBtn Потолок
+                      .expandBlock.price_box_expand
+                        .price_row
+                          .fl
+                            .task_name Покраска потолка
+                          .fr
+                            +task_add('ceil_painting')
+
+                        .price_row
+                          .fl
+                            .task_name Монтаж реечного потолка
+                          .fr
+                            +task_add('rake_ceil_installing')
+
+                        .price_row
+                          .fl
+                            .task_name Монтаж натяжного потолка
+                          .fr
+                            +task_add('stretch_ceil_installing')
+
+                      .price_box_caption.collapseBtn Пол
+                      .expandBlock.price_box_expand
+                        .price_row
+                          .fl
+                            .task_name Настил линолеума
+                          .fr
+                            +task_add('linoleum_flooring')
+
+                        .price_row
+                          .fl
+                            .task_name Настил ламината
+                          .fr
+                            +task_add('laminate_flooring')
+
+                        .price_row
+                          .fl
+                            .task_name Настил паркета
+                          .fr
+                            +task_add('parquet_flooring')
+
+                        .price_row
+                          .fl
+                            .task_name Укладка плитки
+                          .fr
+                            +task_add('laying_tiles')
+
+                        .price_row
+                          .fl
+                            .task_name Монтаж теплого пола
+                          .fr
+                            +task_add('warm_floor')
+
+                .price_col
+                  ul#price_switcher.price_col_tabs
+                    li: a.tab_link(href='#price_tab_1'): span смета работ
+                    li: a.tab_link(href='#price_tab_2'): span смета материалов
+
+                  .tab_panels.tabBlock(data-tab-context='#price_switcher')
+                    #price_tab_1.tab_panel.show_example
+                      .tab_content
+                        .tab_content_overview
+                          .gl_table
+                            .gl_table_cell
+                              p Выберите работы <br>из 
+                                span.c_blue левого списка 
+                                | <br> чтобы увидеть смету
+                        .price_col_box.mCSB
+                          #estimations
+                          #estimations_example.estimations_example
+                            .task_estimation
+                              .price_row
+                                .fl
+                                  .task_name Поклейка обоев
+                                .fr
+                                  +task_rm()
+
+                              .task_estimate_block
+                                .task_estimate_date
+                                  span.task_step 1 этап ремонта
+                                  span.task_period 22.06.2017 - 25.06.2017
+
+                                dl.task_estimate_list
+                                  dt Демонтаж старых обоев
+                                  dd 2 500 руб
+
+                                  dt Грунтовка обоев
+                                  dd 2 500 руб
+
+                                  dt Демонтаж старых обоев
+                                  dd 2 500 руб
+
+                                  dt.estimate_total Сумма
+                                  dd.estimate_total 7 500 руб
+
+                            .task_estimation
+                              .price_row
+                                .fl
+                                  .task_name Покраска стен
+                                .fr
+                                  +task_rm()
+
+                              .task_estimate_block
+                                .task_estimate_date
+                                  span.task_step 1 этап ремонта
+                                  span.task_period 22.06.2017 - 25.06.2017
+
+                                dl.task_estimate_list
+                                  dt Демонтаж старых обоев
+                                  dd 2 500 руб
+
+                                  dt Грунтовка обоев
+                                  dd 2 500 руб
+
+                                  dt Демонтаж старых обоев
+                                  dd 2 500 руб
+
+                                  dt.estimate_total Сумма
+                                  dd.estimate_total 7 500 руб
+
+                            .task_estimation
+                              .price_row
+                                .fl
+                                  .task_name Укладка плитки
+                                .fr
+                                  +task_rm()
+
+                              .task_estimate_block
+                                .task_estimate_date
+                                  span.task_step 1 этап ремонта
+                                  span.task_period 22.06.2017 - 25.06.2017
+
+                                dl.task_estimate_list
+                                  dt Демонтаж старых обоев
+                                  dd 2 500 руб
+
+                                  dt Грунтовка обоев
+                                  dd 2 500 руб
+
+                                  dt Демонтаж старых обоев
+                                  dd 2 500 руб
+
+                                  dt.estimate_total Сумма
+                                  dd.estimate_total 7 500 руб
+
+                    #price_tab_2.tab_panel
+                      .tab_content
+                        .price_col_box.mCSB
+                          #materials
+                            //.material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            //.material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            //.material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            //.material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки.  Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            //.material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. Раковина Белла может быть в 2 строки. Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+              .total_price_block
+                .total_price_content
+                  .total_price_col
+                    ul.total_price_list
+                      li
+                        span Цена работ -
+                        span.ff_med.c_blue.workPrice 31 590 Р
+                      li.materialsSelf
+                        span Цена материалов -
+                        span.ff_med.c_blue.materialsPrice 12 390 Р
+                      li.materialsSelf
+                        span Скидка материалов -
+                        span.ff_med.c_blue.materialsShare 5 600 Р
+
+                      li._total
+                        span Дата завершения работ -
+                        span.ff_med.c_blue.dateFinish 01.06.2018
+
+                    .total_price_box
+                      .total_price_val.totalPrice 42 590 Р
+
+                      .total_price_materials
+                        label.check_box.check_box_v1
+                          input.materialsCheck(data-price=0 type='checkbox')
+                          span.check_text
+                            span Я закупаю материалы<br>сам (- 
+                            span.materialsPrice 12 390 Р
+                            span )
+
+                  .total_price_col
+                    .total_price_contact.formCell
+                      .input_w.errorShaker
+                        input.f_input.f_input_v3(value='' data-inputmask="'mask': '+7 (999) 999-99-99', 'clearIncomplete': 'true'" class='validate[required,funcCall[checkClassFunc]]' placeholder='+7 (___) ___-__-__')
+                        span.i-mobile.contact_icon
+
+                      .total_price_error
+                        span._exclamation ! &nbsp;
+                        span  Введите корректный номер телефона
+
+                    .total_price_send
+                      button.btn_v4.btn_blue_2.send_btn.sendBtn Заказать ремонт
+
+          .why_section
+            .section_inner
+              .section_caption
+                span Почему 
+                span._underline._yellow: span выбирают
+                span  нас?
+
+              ul.why_list
+                li
+                  .why_box
+                    .why_img
+                    .why_caption Фиксированная смета
+                    p После расчета финальной сметы вы можете быть уверены, что цена не вырастет. Мы ответственно подходим к каждому заказу и бережно относимся к каждому клиенту.
+
+                li
+                  .why_box
+                    .why_img
+
+                    .why_caption Ремонт без переплаты
+                    p Ремонт в вашей квартире начинается сразу после подписания договора и внесения предоплаты. Следующий платеж — только после завершения первого этапа ремонта.
+
+                li
+                  .why_box
+                    .why_img
+
+                    .why_caption Честные цены
+                    p Скидки, которые предоставляют нам крупные торговые сети и ведущие производители материалов, мебели, сантехники, мы передаем Вам — нашим клиентам. С нами вы можете сэкономить до 50%.
+
+                li
+                  .why_box
+                    .why_img
+
+                    .why_caption Каждый этап ремонта имеет свой регламент
+                    p Даже такая простая на первый взгляд операция, как укладка плитки, включает пять технологических этапов. Все наши сотрудники прошли специальное обучение. Безукоризненное соблюдение технологии гарантирует немецкое качество на каждом этапе любого вида ремонтных работ.
+
+              .section_caption
+                span Выполненные  
+                span._underline._yellow: span проекты
+
+              ul.project_list
+                +loop_while(1)
+                  li
+                    .project_item
+                      .project_img
+                        img(src='i/zastavskaya.png')
+                      .project_info
+                        div Ванная 
+                          span.ff_bold 5 м
+                            sup 2
+                        p ул Заставская
+                      .project_date 2 сентября 2017
+                        
+                  li
+                    .project_item
+                      .project_img
+                        img(src='i/schepkina.png')
+                      .project_info
+                        div Гостинная 
+                          span.ff_bold 22 м
+                            sup 2
+                        p ул Щепкина
+                      .project_date 18 июня 2017
+                        
+                  li
+                    .project_item
+                      .project_img
+                        img(src='i/marina_roscha.png')
+                      .project_info
+                        div Комната 
+                          span.ff_bold 22 м
+                            sup 2
+                        p ул Марьиной Рощи 2-я
+                      .project_date 5 сентября 2017
+                        
+                  li
+                    .project_item
+                      .project_img
+                        img(src='i/krasnoprudnaya.png')
+                      .project_info
+                        div Кухня 
+                          span.ff_bold 8 м
+                            sup 2
+                        p Краснопрудная ул
+                      .project_date 11 ноября 2017
+                        
+              .section_caption.clearfix
+                .fl
+                  span._underline._yellow: span Ответы 
+                  span на вопросы
+
+                .fr
+                  a.btn_v1.btn_light_blue.login_btn(href='#') + Задать вопрос
+
+              .question_block
+                .question.collapseBtn Что, если вы по каким-то причинам задержите сдачу?
+
+                .expandBlock(style='display:none')
+                  .answer
+                    p Согласно условиям договора если в случае каких либо обстоятельств сроки ремонта будут задержаны. Наша компания выплачивает компенсацию за каждый день задержки.
+
+              .question_block
+                .question.collapseBtn Сколько времени занимает ремонт?
+
+                .expandBlock(style='display:none')
+                  .answer
+                    p Сроки ремонта уточняются после осмотра объекта бригадиром. Как правило ремонт небольшой комнаты или санузла занимает менее 2х недель
+
+          .review_section
+            .section_inner
+              .section_caption
+                span Отзывы  
+                span._underline._yellow: span о компании
+
+              ul.review_list
+                li
+                  .review_item
+                    p Заказывал поклейку обоев в комнате. Приехала бригада, все сделала за 2 дня, остался доволен!
+
+                    .review_author
+                      .review_author_img._author_tr
+                        img(src='i/1.png')
+                      .review_author_name Федор Розанов
+                      .review_author_post Менеджер
+
+                li
+                  .review_item
+                    p Было необходимо положить плитку в ванной комнате что и было сделано мастерами. Претензий к работе нет.
+
+                    .review_author
+                      .review_author_img._author_br
+                        img(src='i/2.png')
+                      .review_author_name Дмитрий Филатов
+                      .review_author_post Продавец
+
+                li
+                  .review_item
+                    p Мне уже делала ремонт другая компания но остались недоделки и выбрала Gustavs. Осталась довольна.
+
+                    .review_author
+                      .review_author_img._author_tl
+                        img(src='i/3.png')
+                      .review_author_name Елена Масленикова
+                      .review_author_post Менеджер по продажам
+
+
+      +footer()
+
+      +popups()
+
+    +scripts()

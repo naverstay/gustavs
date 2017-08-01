@@ -1,0 +1,163 @@
+.input_w {
+  position: relative;
+
+}
+
+.f_input {
+  display: block;
+  width: 100%;
+
+  &.f_input_v1 {
+    @include transition_all(background .3s);
+    width: 180px;
+    cursor: pointer;
+    padding: 14px 10px;
+    height: 45px;
+    font: 12px/15px $GothamProMedium;
+    text-align: left;
+    position: relative;
+    border: 1px solid $lines;
+    color: $default_t_color;
+    background: #fff;
+
+    &:hover {
+      background: $blue_light;
+      color: $blue;
+    }
+  }
+
+  &.f_input_v2 {
+    @include transition_all(background .3s);
+    width: 150px;
+    cursor: pointer;
+    height: 30px;
+    padding: 7px 10px;
+    font: 12px/14px $GothamProMedium;
+    text-align: left;
+    position: relative;
+    border: 1px solid $lines;
+    color: $default_t_color;
+    background: #fff;
+
+    &:hover {
+      background: $blue_light;
+      color: $blue;
+    }
+
+    &._opened {
+      ~ .dropdown_arrow {
+        &:before {
+          content: $i-chevron_down;
+        }
+      }
+    }
+
+    &._control_mode {
+      width: 100px;
+      padding-left: 20px;
+      padding-right: 20px;
+      color: $blue;
+      text-transform: none;
+      text-align: center;
+      white-space: nowrap;
+      font: 600 12px/14px $Roboto;
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      sup {
+        font-size: .6em;
+        line-height: 1;
+        margin-top: 2px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      input {
+        width: 44px;
+        color: $blue;
+        text-align: right;
+        font: 600 12px/14px $Roboto;
+        padding-right: 2px;
+      }
+    }
+  }
+
+  &.f_input_v3 {
+    @include transition_all(background .3s);
+    width: 262px;
+    padding: 14px 10px 14px 60px;
+    height: 50px;
+    font: 600 16px/18px $Roboto;
+    text-align: left;
+    position: relative;
+    border: 1px solid $lines;
+    color: $default_t_color;
+  }
+
+  &._icon_before {
+    padding-left: 53px;
+  }
+}
+
+.dropdown_arrow {
+  @extend %icon_pseudo;
+  position: absolute;
+  top: 50%;
+  height: 12px;
+  font-size: 9px;
+  line-height: 12px;
+  margin-top: -5px;
+  right: 11px;
+  color: #889ba9;
+  pointer-events: none;
+
+  &:before {
+    content: $i-chevron_right;
+  }
+
+}
+
+.check_box {
+  display: inline-block;
+  vertical-align: top;
+
+  input {
+    display: none;
+  }
+
+  &.check_box_v1 {
+
+    .check_text {
+      @extend %icon_pseudo;
+      display: block;
+      position: relative;
+      padding-left: 23px;
+      font-size: 12px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        font-size: 8px;
+        line-height: 11px;
+        text-align: center;
+        color: $blue;
+        font-weight: bold;
+        border: 2px solid #6d747c;
+      }
+    }
+
+    input:checked + .check_text {
+
+      &:before {
+        content: $i-check;
+      }
+    }
+  }
+}

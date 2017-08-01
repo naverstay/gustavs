@@ -1,0 +1,89 @@
+@import "variables";
+
+@font-face {
+  font-family: 'gustavs_icons';
+  src:  url('#{$icomoon-font-path}/gustavs_icons.eot?sjiwxv');
+  src:  url('#{$icomoon-font-path}/gustavs_icons.eot?sjiwxv#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/gustavs_icons.ttf?sjiwxv') format('truetype'),
+    url('#{$icomoon-font-path}/gustavs_icons.woff?sjiwxv') format('woff'),
+    url('#{$icomoon-font-path}/gustavs_icons.svg?sjiwxv#gustavs_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'gustavs_icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-pencil {
+  &:before {
+    content: $i-pencil;
+  }
+}
+.i-quote {
+  &:before {
+    content: $i-quote;
+  }
+}
+.i-date {
+  &:before {
+    content: $i-date;
+  }
+}
+.i-mobile {
+  &:before {
+    content: $i-mobile;
+  }
+}
+.i-work {
+  &:before {
+    content: $i-work;
+  }
+}
+.i-check {
+  &:before {
+    content: $i-check;
+  }
+}
+.i-close {
+  &:before {
+    content: $i-close;
+  }
+}
+.i-arrow_left {
+  &:before {
+    content: $i-arrow_left;
+  }
+}
+.i-chevron_left {
+  &:before {
+    content: $i-chevron_left;
+  }
+}
+.i-chevron_right {
+  &:before {
+    content: $i-chevron_right;
+  }
+}
+.i-chevron_down {
+  &:before {
+    content: $i-chevron_down;
+  }
+}
+.i-chevron_up {
+  &:before {
+    content: $i-chevron_up;
+  }
+}
+

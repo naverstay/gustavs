@@ -1,0 +1,431 @@
+mixin dev_head(page_title)
+    head
+        title=page_title
+        | <!-- saved from url=(0014)about:internet -->
+        meta(charset='utf-8')
+        meta(name='viewport', content="width=device-width, initial-scale=1.0")
+        meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="format-detection", content="telephone=no")
+        //-style
+            include ../styles/main_global.css
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic', media='all')
+        link(rel='stylesheet', href='styles/main_global.css', media='all')
+
+mixin loop_while(counter)
+    -i=0;
+    while i < counter
+        -i++;
+        block
+
+mixin header()
+  .header._fixed
+    .section_inner.clearfix
+      .logo_block
+        a.logo(href='#')
+          img(src='i/logo.png')
+
+      ul.main_menu
+        li.menu_item
+          a.btn_v1.header_btn.btn_white._icon_before._drop_down.megaMenuBtn._megamenu(href='#menu_1')
+            span.btn_icon.c_blue
+              span.i-work
+            span.link_text.taskName Вид работы
+        li.menu_item
+          .input_w
+            input#date_header.datePicker._icon_before.f_input_v1.f_input(value='30 Июля, 2017' data-correspond='#date_inline')
+            span.btn_icon.c_blue
+              span.i-date
+              
+          //-a.btn_v1.header_btn.btn_white._icon_before(href='#')
+            span.btn_icon.c_blue
+              span.i-date
+            span.link_text 8 Июля, 2017
+        
+        li.menu_item
+          a.btn_v1.calc_btn.btn_blue.scrollTo(href='#price_section') Рассчитать
+          
+      ul.user_menu
+        li
+          a.user_m_link(href='tel:+74958000609')
+            span +7 (495) 
+            span.ff_med 800-06-09
+        li
+          a.btn_v1.btn_light_blue.login_btn(href='#') Вход
+          
+      #menu_1.mega_menu.megaMenu
+        ul.mega_m_list.taskList
+          li
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Стены
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#shpalery') Поклейка обоев
+              .mega_m_item: a.mega_m_link.addTask(href='#walls') Покраска стен
+              .mega_m_item: a.mega_m_link.addTask(href='#tiles') Укладка плитки
+              
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Двери
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#window_installing') Установка окон
+              
+          li
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Потолок
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#ceil_painting') Покраска потолка
+              .mega_m_item: a.mega_m_link.addTask(href='#rake_ceil_installing') Монтаж реечного потолка
+              .mega_m_item: a.mega_m_link.addTask(href='#stretch_ceil_installing') Монтаж натяжного потолка
+              
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Электрика
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка розеток и выключателей
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка и подключение люстры потолочной
+              .mega_m_item: a.mega_m_link.addTask(href='#') Замена (ремонт) электросчетчиков
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка дверного звонка
+              
+          li
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Пол
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#linoleum_flooring') Настил линолеума
+              .mega_m_item: a.mega_m_link.addTask(href='#laminate_flooring') Настил ламината
+              .mega_m_item: a.mega_m_link.addTask(href='#parquet_flooring') Настил паркета
+              .mega_m_item: a.mega_m_link.addTask(href='#laying_tiles') Укладка плитки
+              .mega_m_item: a.mega_m_link.addTask(href='#warm_floor') Монтаж теплого пола
+              
+          li
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Окна
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка окон
+              
+          li
+            .mega_m_unit
+              .mega_m_img
+                
+              .mega_m_caption Монтаж сантехники
+                
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка ванной
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка унитаза
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка раковины со смесителем
+              .mega_m_item: a.mega_m_link.addTask(href='#') Монтаж/замена счетчиков ХВС,ГВС
+              .mega_m_item: a.mega_m_link.addTask(href='#') Монтаж полотенцосушителя
+              .mega_m_item: a.mega_m_link.addTask(href='#') Монтаж радиатора отопления
+              .mega_m_item: a.mega_m_link.addTask(href='#') Прочистка засоров и устранение протечек
+              .mega_m_item: a.mega_m_link.addTask(href='#') Замена стояков
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка фильтров для воды
+              .mega_m_item: a.mega_m_link.addTask(href='#') Установка водонагревателей
+              
+mixin popups()
+  #checkout_popup.popup.popup_v1
+    form.popup_inner(action='#')
+      a.popup_close.popupClose(href='#')
+        span вернуться к сайту
+        
+      .checkout_block
+        .checkout_col._wide
+          .booking_block
+            .booking_caption
+              span Для бронирования ремонта необходимо внести минимальный 
+              span._underline._blue_light._small: span первый платеж
+        
+            .booking_cell
+              p Минимальный платеж
+              .booking_price 1 000 Р
+        
+            .booking_cell._wide
+              button.btn_v4.btn_blue.send_btn.sendBtn Внести Платеж
+                
+            .booking_tip После внесения оплаты с вами свяжется менеджер для уточнения времени приезда бригады на объект
+              
+            ul.booking_payments
+              li
+                span Cпособы<br>оплаты:
+              li
+                .booking_pay
+                  img(src='i/pay_01.png')
+              li
+                .booking_pay
+                  img(src='i/pay_02.png')
+              li
+                .booking_pay
+                  img(src='i/pay_03.png')
+              li
+                .booking_pay
+                  img(src='i/pay_04.png')
+              li 
+                a.gl_link(href='#')
+                  span Еще 22<br>способа
+        
+        .checkout_col
+          ul.total_price_list
+            li
+              span Дата начала ремонта -
+              span.c_blue.fw_b.dateStart 22.06.2017
+              span.fr
+                a.edit_link.changeBtn(href='#price_section')
+                  span.i-pencil
+                  span.link_text Изменить
+            li
+              span Дата завершения ремонта -
+              span.fw_b.dateFinish 22.06.2017
+              
+          dl.task_estimate_list._mod_1
+            dt Стоимость работ
+            dd.workPrice 31 590 Р
+
+            dt.materialsSelf Стоимость материалов
+            dd.materialsPrice.materialsSelf 5 590 Р
+
+            dt.materialsSelf Скидка материалов
+            dd.materialsShare.materialsSelf 3 590 Р
+
+            dt.estimate_total Итого 
+            dd.estimate_total.totalPrice 42 590 Р
+              
+        .checkout_col._wide
+          .checkout_col_caption 
+            span.fl смета работ
+          
+            .fr
+              ul.total_price_list
+                li
+                  span Общая площадь -
+                  span.c_blue.fw_b 
+                    span 334 м
+                    sup 2
+                  span.fr
+                    a.edit_link.changeBtn(href='#price_section')
+                      span.i-pencil
+                      span.link_text Изменить
+                      
+          .mCSB.job_estimation_holder
+            #estimations_popup
+              .price_row
+                .fl
+                  .task_name Поклейка обоев
+                .fr
+                  .task_volume
+                    span 20 м
+                    sup 2
+  
+              .task_estimate_block
+                .task_estimate_date
+                  span.task_step 1 этап ремонта
+                  span.task_period 22.06.2017 - 25.06.2017
+  
+                dl.task_estimate_list
+                  dt Демонтаж старых обоев
+                  dd 2 500 руб
+  
+                  dt Грунтовка обоев
+                  dd 2 500 руб
+  
+                  dt Демонтаж старых обоев
+                  dd 2 500 руб
+  
+                  dt.estimate_total.c_blue Итого
+                  dd.estimate_total 7 500 руб
+                      
+              .task_estimate_block
+                .task_estimate_date
+                  span.task_step 2 этап ремонта
+                  span.task_period 22.06.2017 - 25.06.2017
+  
+                dl.task_estimate_list
+                  dt Демонтаж старых обоев
+                  dd 2 500 руб
+  
+                  dt Грунтовка обоев
+                  dd 2 500 руб
+  
+                  dt Демонтаж старых обоев
+                  dd 2 500 руб
+  
+                  dt.estimate_total.c_blue Итого
+                  dd.estimate_total.c_blue 7 500 руб
+                      
+              .task_estimate_block
+                .task_estimate_date
+                  span.task_step 3 этап ремонта
+                  span.task_period 22.06.2017 - 25.06.2017
+  
+                dl.task_estimate_list
+                  dt Демонтаж старых обоев
+                  dd 2 500 руб
+  
+                  dt Грунтовка обоев
+                  dd 2 500 руб
+  
+                  dt Демонтаж старых обоев
+                  dd 2 500 руб
+  
+                  dt.estimate_total.c_blue Итого
+                  dd.estimate_total 7 500 руб
+                      
+        .checkout_col
+          .checkout_col_caption 
+            span.fl смета материалов
+            
+          .material_estimation_holder.mCSB
+            #materials_popup
+              .material_block
+                .material_img
+                  
+                .material_name Раковина Белла может быть в 2 строки. 
+                  
+                .material_store
+                  a.material_link(href='#') Магазин Петрович
+                
+                dl.material_params
+                  dt Цена -
+                  dd 
+                    span._old.fw_b 31 590 Р
+                      
+                  dt Цена со скидкой -
+                  dd 
+                    span.c_blue.fw_b 31 590 Р
+                    
+              .material_block
+                .material_img
+                  
+                .material_name Раковина Белла может быть в 2 строки. 
+                  
+                .material_store
+                  a.material_link(href='#') Магазин Петрович
+                
+                dl.material_params
+                  dt Цена -
+                  dd 
+                    span._old.fw_b 31 590 Р
+                      
+                  dt Цена со скидкой -
+                  dd 
+                    span.c_blue.fw_b 31 590 Р
+                    
+              .material_block
+                .material_img
+                  
+                .material_name Раковина Белла может быть в 2 строки. 
+                  
+                .material_store
+                  a.material_link(href='#') Магазин Петрович
+                
+                dl.material_params
+                  dt Цена -
+                  dd 
+                    span._old.fw_b 31 590 Р
+                      
+                  dt Цена со скидкой -
+                  dd 
+                    span.c_blue.fw_b 31 590 Р
+                    
+              .material_block
+                .material_img
+                  
+                .material_name Раковина Белла может быть в 2 строки.  Раковина Белла может быть в 2 строки. 
+                  
+                .material_store
+                  a.material_link(href='#') Магазин Петрович
+                
+                dl.material_params
+                  dt Цена -
+                  dd 
+                    span._old.fw_b 31 590 Р
+                      
+                  dt Цена со скидкой -
+                  dd 
+                    span.c_blue.fw_b 31 590 Р
+                    
+              .material_block
+                .material_img
+                  
+                .material_name Раковина Белла может быть в 2 строки. Раковина Белла может быть в 2 строки. Раковина Белла может быть в 2 строки. 
+                  
+                .material_store
+                  a.material_link(href='#') Магазин Петрович
+                
+                dl.material_params
+                  dt Цена -
+                  dd 
+                    span._old.fw_b 31 590 Р
+                      
+                  dt Цена со скидкой -
+                  dd 
+                    span.c_blue.fw_b 31 590 Р
+                    
+mixin footer()
+  .footer
+    .section_inner
+      ul.copyrights
+        li
+          a.f_link.ff_bold(href='#') Gustavs.ru
+        li
+          span Все права защищены
+          
+      ul.user_menu
+        li
+          a.user_m_link(href='tel:+74958000609')
+            span +7 (495) 
+            span.ff_med 800-06-09
+        li
+          a.user_m_link(href='#')
+            span.ff_med Вход
+          
+mixin task_add(id)
+  .task_block_toggle
+    a.gl_link._add.addTaskBtn(href='#' + id) 
+      span._on добавить
+      span._off удалить
+      
+  //-.task_block_content
+    .task_name Площадь
+    .input_w
+      .f_input_v2.f_input.volumeControl._control_mode(data-unit="<span>м</span><sup>2</sup>,<span>м</span>,<span>шт</span>" data-active=0)
+        input.volumeSize(value='20' type='hidden' data-min='1' data-max='1000' data-step='1')
+        input.volumeUnit(value='м2' type='hidden')
+        span.volumeVal
+          input(value=20 data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 1, 'placeholder': '0', 'digitsOptional': false")
+          span.unitSwitcher
+            <span>м</span><sup>2</sup>
+        span.btn_v3.counter_btn._minus.valMinus
+        span.btn_v3.counter_btn._plus.valPlus
+            
+mixin task_rm()
+  .task_block_content
+    .task_name Площадь
+    .input_w
+      .f_input_v2.f_input.volumeControl._control_mode(data-unit="<span>м</span><sup>2</sup>,<span>м</span>,<span>шт</span>" data-active=0)
+        input.volumeSize(value='20' type='hidden' data-min='1' data-max='1000' data-step='1')
+        input.volumeUnit(value='м2' type='hidden')
+        span.volumeVal
+          input(value=20 data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 1, 'placeholder': '0', 'digitsOptional': false")
+          span.unitSwitcher
+            <span>м</span><sup>2</sup>
+        span.btn_v3.counter_btn._minus.valMinus
+        span.btn_v3.counter_btn._plus.valPlus
+
+  //-.task_block_toggle
+    a.gl_link._rm.rmTaskBtn(href='#') удалить
+        
+mixin scripts()
+    script(src='js/jquery1.10.js')
+    script(src='js/jquery-ui-1.11.4.js')
+    script(src='js/jquery.mCustomScrollbar.min.js')
+    script(src='js/jquery.inputmask.bundle.js')
+    script(src='js/jquery.validationEngine.js')
+    script(src='js/jquery.validationEngine-ru.js')
+    script(src='js/script.js')

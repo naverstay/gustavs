@@ -1,0 +1,265 @@
+//************  buttons
+
+.btn_v1 {
+  height: 45px;
+
+  &.header_btn {
+    display: block;
+    cursor: pointer;
+    padding: 14px 28px;
+    font: 12px/15px $GothamProMedium;
+    text-align: center;
+    position: relative;
+
+    &._megamenu {
+      width: 157px;
+      white-space: nowrap;
+      
+      .link_text {
+        display: block;
+        overflow: hidden;
+        max-width: 100%;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &.calc_btn {
+    display: block;
+    cursor: pointer;
+    padding: 12px 26px;
+    font: 12px/15px $GothamProMedium;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-left: 8px;
+  }
+
+  &.login_btn {
+    display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 15px 32px;
+    font: 12px/15px $GothamProMedium;
+    text-align: center;
+    letter-spacing: .1em;
+  }
+
+  &._drop_down {
+    @extend %icon_pseudo;
+
+    &:after {
+      content: $i-chevron_down;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      height: 10px;
+      margin-top: -5px;
+      font-size: 10px;
+    }
+
+    &._opened {
+
+      &:after {
+        content: $i-chevron_up;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 38px;
+        right: 9px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 10px solid #d4e4f5;
+      }
+
+      .link_text {
+        &:before {
+          content: '';
+          position: absolute;
+          top: 39px;
+          right: 10px;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 10px solid #fff;
+        }
+      }
+    }
+  }
+
+  &._icon_before {
+    padding-left: 53px;
+  }
+}
+
+.btn_icon {
+  @include transition_all(color .3s);
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  text-align: center;
+  width: 20px;
+  height: 30px;
+  margin-top: -13px;
+  font-size: 20px;
+  line-height: 30px;
+  pointer-events: none;
+}
+
+.btn_v2 {
+  height: 44px;
+
+  &.subscribe_btn {
+    text-align: center;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+}
+
+.btn_v3 {
+
+  &.counter_btn {
+    @extend %icon_pseudo;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 2px;
+      margin: -1px 0 0 -3px;
+      background: $blue;
+    }
+
+    &._minus {
+      left: 0;
+    }
+
+    &._plus {
+      right: 0;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 6px;
+        margin: -3px 0 0 -1px;
+        background: $blue;
+      }
+    }
+  }
+}
+
+.btn_v4 {
+  height: 50px;
+
+  &.send_btn {
+    display: block;
+    text-align: center;
+    width: 194px;
+    padding: 16px;
+    text-transform: uppercase;
+    font: 12px/16px $GothamProBold;
+    letter-spacing: .09em;
+  }
+
+}
+
+.btn_light_blue {
+  @include transition_all(background .3s, color .3s);
+  color: $blue;
+  background: $blue_light;
+
+  &:hover {
+    background: $blue;
+    color: $blue_light;
+
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.btn_light_blue_bdr {
+  @include transition_all(background .3s, color .3s);
+  border: 1px solid #29abe2;
+  color: $blue;
+  background: $blue_light;
+
+  &:hover {
+    background: $blue;
+    color: $blue_light;
+
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.btn_blue {
+  @include transition_all(background .3s, color .3s);
+  border: 3px solid $blue;
+  color: $blue;
+  background: transparent;
+
+  &:hover {
+    background: $blue;
+    color: #fff;
+  }
+}
+
+.btn_blue_2 {
+  @include transition_all(background .3s, color .3s);
+  border: 3px solid $blue;
+  background: $blue;
+  color: #fff;
+
+  &:hover {
+    background: darken($blue, 5%);
+  }
+}
+
+.btn_white {
+  @include transition_all(background .3s);
+  border: 1px solid #d4e4f5;
+  color: $default_t_color;
+  background: #fff;
+
+  &:hover {
+    background: $blue_light;
+    color: $blue;
+
+    span {
+      color: $blue;
+    }
+  }
+}
+
+.green_btn {
+  color: #fefefe;
+  background: #22b573;
+}
+
+.btn_red {
+  color: #fff;
+  background: #f46b65;
+}
+
+.yellow_btn {
+  background: #fbe622;
+  color: #000;
+  box-shadow: 0 3px 5px #7f7f7f;
+}
