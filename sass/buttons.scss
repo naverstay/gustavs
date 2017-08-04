@@ -13,7 +13,7 @@
     &._megamenu {
       width: 142px;
       white-space: nowrap;
-      
+
       .link_text {
         display: block;
         overflow: hidden;
@@ -33,6 +33,34 @@
     text-transform: uppercase;
     letter-spacing: .05em;
     margin-left: 10px;
+  }
+
+  &.checkout_btn {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 10px 18px;
+    font: 400 12px/15px $Roboto;
+    text-align: center;
+    letter-spacing: .1em;
+
+    span {
+      + span {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  &.confirm_btn {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 8px 18px;
+    text-transform: uppercase;
+    font: 700 12px/15px $Roboto;
+    text-align: center;
+    letter-spacing: .1em;
+    min-width: 380px;
   }
 
   &.login_btn {
@@ -67,7 +95,7 @@
       &:before {
         content: '';
         position: absolute;
-        top: 38px;
+        top: 27px;
         right: 9px;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
@@ -78,7 +106,7 @@
         &:before {
           content: '';
           position: absolute;
-          top: 39px;
+          top: 28px;
           right: 10px;
           border-left: 5px solid transparent;
           border-right: 5px solid transparent;
@@ -172,6 +200,22 @@
     padding: 16px;
     text-transform: uppercase;
     font: 12px/16px $GothamProBold;
+    letter-spacing: .09em;
+  }
+
+}
+
+.btn_v5 {
+  height: 60px;
+
+  &.login_btn {
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 17px;
+    text-transform: uppercase;
+    font: 14px/20px $GothamProBold;
     letter-spacing: .09em;
   }
 

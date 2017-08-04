@@ -1,0 +1,42 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Gustavs login')
+
+  body
+    .wrapper
+      .gl_overlay.glOverlay
+      .base
+        +header(false, false, true)
+
+        .main_content
+          .section_inner
+            .congratulation_title
+              span Вход в личный кабинет 
+              span._yellow._underline._big: span Gustavs
+              
+            .congratulation_text
+              p В личном кабинете вы можете отслеживать ход ремонта<br>и вносить оплату.  
+          
+            .login_form
+              form.validateMe(action='')
+                .form_cell.cell_v1
+                  label.f_label(for='login_phone') Номер телефона
+                  input#login_phone.f_input.f_input_v4(value='' data-inputmask="'mask': '+7 (999) 999-99-99', 'clearIncomplete': 'true'" class='validate[required,funcCall[checkClassFunc]]' placeholder='+7 (___) ___-__-__')
+                
+                .form_cell.cell_v1
+                  label.f_label(for='login_pass') Пароль
+                  input#login_pass.f_input.f_input_v4(type='password' class='validate[required]')
+                
+                .form_cell.submit_cell
+                  button.login_btn.btn_v5.btn_blue
+                    span.i-arrow_right.login_arrow.c_blue
+                    span Войти
+                
+                
+            
+      +footer()
+
+      +popups()
+
+    +scripts()

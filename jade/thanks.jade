@@ -1,0 +1,36 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Gustavs thanks')
+
+  body
+    .wrapper
+      .gl_overlay.glOverlay
+      .base
+        +header(false, false, true)
+
+        .main_content
+          .section_inner
+            .congratulation_title
+              span._yellow._underline._big: span Поздравляем
+              | <br>
+              span Вы успешно сделали платеж
+              
+            .congratulation_text
+              p В ближайшее время вам позвонит менеджер для уточнения даты времени начала ремонта.
+              
+              p 
+                | На ваш телефон 
+                a.c_blue.fw_b(href='tel:+7951333333') +7 951 33 33 33
+                |  выслан СМС  с паролем помощью которого  вы сможете войти в личный кабинет чтобы отслеживать ход ремонта и вносить оплату.
+          
+              .form_cell.submit_cell
+                a.login_btn.btn_v5.btn_blue(href='login.html')
+                  span.i-arrow_right.login_arrow.c_blue
+                  span Войти в личный кабинет
+                  
+      +footer()
+
+      +popups()
+
+    +scripts()

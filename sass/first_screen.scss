@@ -1,10 +1,10 @@
 html, body {
-  min-height: 100%;
+  height: 100%;
 }
 
 html {
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 body {
@@ -37,7 +37,9 @@ body {
 .wrapper {
   position: relative;
   min-height: 100%;
+  max-width: 100%;
   padding-top: 90px;
+  overflow: hidden;
 }
 
 .gl_overlay {
@@ -107,7 +109,7 @@ body {
   left: -5px;
   width: 36px;
   height: 36px;
-  
+
   img {
     display: block;
   }
@@ -534,6 +536,10 @@ body {
   padding-top: 70px;
 }
 
+.lk_section {
+  padding: 30px 0 50px;
+}
+
 .total_price_block {
   position: relative;
 
@@ -669,6 +675,10 @@ body {
     border: none;
     background: none;
   }
+
+  &._schedule {
+    width: 63.5%;
+  }
 }
 
 .tab_panel {
@@ -739,7 +749,10 @@ html .price_col_tabs {
 .tab_content {
   position: relative;
   padding-top: 18px;
-  height: 432px;
+
+  .price_section & {
+    height: 432px;
+  }
 }
 
 .tab_content_overview {
@@ -782,7 +795,7 @@ html .price_col_tabs {
 
 .price_col_caption {
   @extend %clearfix;
-  font: 600 12px/30px $Roboto;
+  font: 500 12px/30px $Roboto;
   margin-bottom: 8px;
   padding: 10px 23px 8px 0;
   text-transform: uppercase;
@@ -824,6 +837,10 @@ html .price_col_tabs {
     line-height: 1;
     margin-top: .9em;
   }
+
+  .lk_section & {
+    min-width: 60px;
+  }
 }
 
 .price_step_index {
@@ -838,9 +855,12 @@ html .price_col_tabs {
 }
 
 .price_col_box {
-  padding-right: 16px;
-  max-height: 390px;
-  overflow: hidden;
+
+  &.mCSB {
+    padding-right: 16px;
+    max-height: 390px;
+    overflow: hidden;
+  }
 
   .fr,
   .fl {
@@ -885,13 +905,14 @@ html .price_col_tabs {
     min-width: 80px;
   }
 
-  &:hover {
-    background: #f3f8fc;
-  }
+  .price_section & {
+    &:hover {
+      background: #f3f8fc;
+    }
 
-  &._active {
-    background: #e5eff9;
-
+    &._active {
+      background: #e5eff9;
+    }
   }
 
   &._clone {
@@ -904,6 +925,10 @@ html .price_col_tabs {
     z-index: 10;
     border: 1px solid $lines;
   }
+}
+
+.checkout_col_box {
+  margin-right: 45px;
 }
 
 .task_block_toggle {
@@ -1019,6 +1044,10 @@ html .price_col_tabs {
   overflow: hidden;
   font: 12px/30px $Roboto;
 
+  &._payment {
+    padding-top: 25px;
+  }
+
   dd,
   dt {
     position: relative;
@@ -1041,10 +1070,20 @@ html .price_col_tabs {
     letter-spacing: .05em;
 
     &.estimate_total {
-      .price_col & {
+      .price_section .price_col & {
         font-size: 16px;
         letter-spacing: 0;
       }
+    }
+
+    .lk_section & {
+      width: auto;
+      max-width: 24%;
+    }
+
+    &.grand_price {
+      font-size: 18px;
+      font-weight: bold;
     }
   }
 
@@ -1054,15 +1093,22 @@ html .price_col_tabs {
     max-width: 74%;
 
     &:before {
-      content: '.....................................................................................................................';
+      content: '.................................................................................................................................................................................................................................................................................';
       position: absolute;
       left: 100%;
       white-space: nowrap;
       color: #c9d0d8;
       margin-left: 5px;
+      font-size: 10px;
+      padding-top: 2px;
     }
 
     &.estimate_total {
+      font-weight: bold;
+    }
+
+    &.grand_price {
+      font-size: 14px;
       font-weight: bold;
     }
   }
@@ -1093,20 +1139,47 @@ html .price_col_tabs {
   }
 }
 
-.job_estimation_holder {
-  height: 275px;
-  overflow: hidden;
+.payment_row {
+  @extend %clearfix;
+  text-align: right;
+  white-space: nowrap;
+  line-height: 30px;
+  padding: 15px 0;
 
-  .price_row {
-    margin-right: 72px;
-    padding: 3px 0;
+  .fr,
+  .fl {
+    max-width: none;
+  }
+}
+
+.payment_label {
+  font: 500 12px/30px $Roboto;
+  text-transform: uppercase;
+  color: $blue;
+  padding-right: 20px;
+}
+
+.job_estimation_holder {
+
+  &.mCSB {
+    height: 275px;
+    overflow: hidden;
+
+    .price_row {
+      margin-right: 72px;
+      padding: 3px 0;
+    }
   }
 }
 
 .material_estimation_holder {
-  height: 275px;
-  overflow: hidden;
-  margin-right: -25px;
+
+  &.mCSB {
+    height: 275px;
+    overflow: hidden;
+    margin-right: -25px;
+  }
+
 }
 
 .material_block {
@@ -1241,6 +1314,18 @@ html .price_col_tabs {
   @extend %clearfix;
   margin-left: -30px;
   padding-top: 25px;
+
+  .lk_section & {
+    &:before {
+      display: block;
+      width: 1px;
+      position: absolute;
+      top: 85px;
+      bottom: 45px;
+      left: 51.5%;
+      background: #d4e4f5;
+    }
+  }
 }
 
 .checkout_col {
@@ -1363,4 +1448,69 @@ html .price_col_tabs {
 
 }
 
+.congratulation_title {
+  max-width: 780px;
+  margin: 22px auto 13px;
+  position: relative;
+  padding: 35px;
+  text-align: center;
+  font: 36px/1.2 $GothamProMedium;
 
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    width: 82px;
+    height: 34px;
+    border: solid $blue;
+  }
+
+  &:before {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 5px 5px;
+  }
+
+  &:after {
+    top: 0;
+    right: 0;
+    border-width: 5px 5px 0 0;
+  }
+
+  ._underline {
+    &:before {
+      bottom: -3px;
+    }
+  }
+}
+
+.congratulation_text {
+  margin: 0 auto;
+  max-width: 500px;
+  font: 16px/1.8 $Roboto;
+  text-align: center;
+
+  p {
+    + p {
+      position: relative;
+      margin: 45px 0 50px;
+      padding-top: 50px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 350px;
+        margin-left: -175px;
+        height: 1px;
+        background: $lines;
+      }
+    }
+  }
+}
+
+.login_form {
+  margin: 43px auto;
+  width: 300px;
+}

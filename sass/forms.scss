@@ -100,6 +100,19 @@
   &._icon_before {
     padding-left: 34px;
   }
+
+  &.f_input_v4 {
+    @include transition_all(border-color .3s);
+    height: 60px;
+    padding: 23px 18px 10px;
+    font: 16px/20px $GothamProMedium;
+    color: $default_t_color;
+    border: 1px solid #c0c5c9;
+
+    &.error {
+      border-color: #ff3e3e;
+    }
+  }
 }
 
 .dropdown_arrow {
@@ -161,3 +174,42 @@
     }
   }
 }
+
+.form_cell {
+
+  &.submit_cell {
+    padding-right: 17px;
+    max-width: 365px;
+    margin: 40px auto 30px;
+  }
+
+  &.cell_v1 {
+    position: relative;
+    margin-bottom: 28px;
+
+    .f_label {
+      position: absolute;
+      top: 10px;
+      left: 21px;
+      font: 10px/1 $Roboto;
+      opacity: .69;
+    }
+  }
+}
+
+.login_arrow {
+  @include transition_all(margin-left .3s);
+  position: absolute;
+  height: 40px;
+  top: 50%;
+  margin-top: -20px;
+  left: 100%;
+  margin-left: -12px;
+  font-size: 34px;
+  line-height: 40px;
+
+  *:hover > & {
+    margin-left: 20px;
+  }
+}
+

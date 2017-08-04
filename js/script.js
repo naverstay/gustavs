@@ -1,6 +1,7 @@
 var body_var,
   price_section,
   header,
+  wnd,
   total_price = 0,
   work_price = 0,
   material_price = 0,
@@ -25,6 +26,7 @@ var body_var,
 
 $(function ($) {
 
+  wnd = $(window);
   body_var = $('body');
   price_section = $('.priceSection');
   header = $('.header');
@@ -60,7 +62,7 @@ $(function ($) {
 
         setTimeout(function () {
           target.remove();
-          
+
           if (!$('#estimations').children().length) {
             $('#price_tab_1').addClass('show_example');
           }
@@ -382,7 +384,7 @@ $(function ($) {
           if (inp.attr('id') == 'date_header') {
 
             inst.dpDiv.removeClass('dp_v1').css({
-              top: inp.outerHeight() + 56,
+              top: inp.outerHeight() + 32,
               left: inp.offset().left - 8
             });
 
@@ -631,6 +633,7 @@ function initValidation() {
       autoHideDelay: 3000,
       autoPositionUpdate: false,
       prettySelect: true,
+      //clearValidationIfEmpty: true,
       //useSuffix                : "_VE_field",
       addPromptClass: 'relative_mode one_msg',
       showOneMessage: false
@@ -694,14 +697,26 @@ $(window).on('scroll', function () {
 
 function headerFix() {
 
-  if (getScrollTop() + header.outerHeight() < price_section.offset().top) {
-    header.css('top', price_section.offset().top - header.outerHeight()).addClass('_fixed');
+  if ($(window).width() <= 960) {
+    header.css('margin-left', -getScrollLeft());
   } else {
-    header.css('top', price_section.offset().top - header.outerHeight()).removeClass('_fixed');
+    header.css('margin-left', 0);
+  }
+
+  if (price_section.length) {
+    if (getScrollTop() + header.outerHeight() < price_section.offset().top) {
+      header.css('top', price_section.offset().top - header.outerHeight()).addClass('_fixed').removeClass('_abs');
+    } else {
+      header.css('top', price_section.offset().top - header.outerHeight()).removeClass('_fixed').addClass('_abs');
+    }
   }
 
 }
 
 function getScrollTop() {
   return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+
+function getScrollLeft() {
+  return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
 }

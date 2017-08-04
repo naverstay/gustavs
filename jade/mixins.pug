@@ -18,40 +18,56 @@ mixin loop_while(counter)
         -i++;
         block
 
-mixin header()
+mixin header(index, lk, login)
   .header._fixed
     .section_inner.clearfix
       .logo_block
-        a.logo(href='#')
+        a.logo(href='index.html')
           img(src='i/logo.png')
 
-      ul.main_menu
-        li.menu_item
-          a.btn_v1.header_btn.btn_white._icon_before._drop_down.megaMenuBtn._megamenu(href='#menu_1')
-            span.btn_icon.c_blue
-              span.i-work
-            span.link_text.taskName Вид работы
-        li.menu_item
-          .input_w
-            input#date_header.datePicker._icon_before.f_input_v1.f_input(value='30 Июля, 2017' data-correspond='#date_inline')
-            span.btn_icon.c_blue
-              span.i-date
-              
-          //-a.btn_v1.header_btn.btn_white._icon_before(href='#')
-            span.btn_icon.c_blue
-              span.i-date
-            span.link_text 8 Июля, 2017
+      -if (login)
+        ul.user_menu
+          li
+            a.user_m_link(href='tel:+74958000609')
+              span +7 (495) 
+              span.ff_med 800-06-09
         
-        li.menu_item
-          a.btn_v1.calc_btn.btn_blue_2.scrollTo(href='#price_section') Рассчитать
+      -if (lk)
+        ul.user_menu
+          li
+            a.user_m_link(href='tel:+74958000609')
+              span +7 (495) 
+              span.ff_med 800-06-09
+          li
+            a.btn_v1.btn_blue_2.login_btn(href='#') Выход
+      -if (index)
+        ul.main_menu
+          li.menu_item
+            a.btn_v1.header_btn.btn_white._icon_before._drop_down.megaMenuBtn._megamenu(href='#menu_1')
+              span.btn_icon.c_blue
+                span.i-work
+              span.link_text.taskName Вид работы
+          li.menu_item
+            .input_w
+              input#date_header.datePicker._icon_before.f_input_v1.f_input(value='30 Июля, 2017' data-correspond='#date_inline')
+              span.btn_icon.c_blue
+                span.i-date
+                
+            //-a.btn_v1.header_btn.btn_white._icon_before(href='#')
+              span.btn_icon.c_blue
+                span.i-date
+              span.link_text 8 Июля, 2017
           
-      ul.user_menu
-        li
-          a.user_m_link(href='tel:+74958000609')
-            span +7 (495) 
-            span.ff_med 800-06-09
-        li
-          a.btn_v1.btn_blue_2.login_btn(href='#') Вход
+          li.menu_item
+            a.btn_v1.calc_btn.btn_blue_2.scrollTo(href='#price_section') Рассчитать
+            
+        ul.user_menu
+          li
+            a.user_m_link(href='tel:+74958000609')
+              span +7 (495) 
+              span.ff_med 800-06-09
+          li
+            a.btn_v1.btn_blue_2.login_btn(href='login.html') Вход
           
       #menu_1.mega_menu.megaMenu
         ul.mega_m_list.taskList

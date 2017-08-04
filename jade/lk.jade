@@ -1,0 +1,247 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('Gustavs кабинет')
+
+  body
+    .wrapper
+      .gl_overlay.glOverlay
+      .base
+        +header(false, true)
+
+        .main_content
+          #price_section.lk_section.priceSection._checkout
+            form.section_inner.validateMe.checkoutForm(action='#')
+              ul#price_switcher.price_col_tabs
+                li: a.tab_link(href='#price_tab_1'): span график платежей
+                li: a.tab_link(href='#price_tab_2'): span смета работ и материалов
+
+              .tab_panels.tabBlock(data-tab-context='#price_switcher')
+                #price_tab_1.tab_panel
+                  .tab_content.clearfix
+                    .price_col._schedule
+                      .price_col_box
+                        #estimations
+                          .task_estimation._active()
+                            .price_row
+                              .fl
+                                .task_name Поклейка обоев
+                              .fr
+                                .task_volume
+                                  span
+                                    | 20 
+                                    span
+                                  span м
+                                  sup 2
+                                  
+                            .checkout_col_box
+                              dl.task_estimate_list._payment
+                                dt Первый платеж
+                                dd 2 500 руб
+                                    
+                              .payment_row
+                                .fr 
+                                  span.payment_label Статус платежа: 
+                                  a.btn_blue_2.btn_v1.checkout_btn(href='#')
+                                    span.i-check
+                                    span Платеж успешно выполнен
+                                
+                              .task_estimate_date
+                                span.task_step 1 этап ремонта
+                                span.task_period 30.07.2017 - 22.08.2017
+                              dl.task_estimate_list
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+                                dt Грунтовка обоев
+                                dd 2 500 руб
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+                                dt.estimate_total Сумма
+                                dd.estimate_total 7 500 руб
+                                
+                              .payment_row
+                                .fr
+                                  a.btn_blue.btn_v1.confirm_btn(href='#')
+                                    span Принять работу и сделать платеж
+
+                              .task_estimate_date
+                                span.task_step 2 этап ремонта
+                                span.task_period 30.07.2017 - 22.08.2017
+                              dl.task_estimate_list
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+                                dt Грунтовка обоев
+                                dd 2 500 руб
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+                                dt.estimate_total Сумма
+                                dd.estimate_total 7 500 руб
+                                
+                              .payment_row
+                                .fr
+                                  a.btn_blue.btn_v1.confirm_btn(href='#')
+                                    span Принять работу и сделать платеж
+                              
+
+                #price_tab_2.tab_panel
+                  .tab_content.clearfix
+                    .checkout_block
+                      .checkout_col._wide
+                        .checkout_col_caption
+                          span.fl смета работ
+
+                          .fr
+                            ul.total_price_list
+                              li
+                                span Общая площадь -
+                                span.c_blue.fw_b
+                                  span 334 м
+                                  sup 2
+
+                        .job_estimation_holder
+                          #estimations_popup
+                            .price_row
+                              .fl
+                                .task_name Поклейка обоев
+                              .fr
+                                .task_volume
+                                  span 20 м
+                                  sup 2
+
+                            .task_estimate_block
+                              .task_estimate_date
+                                span.task_step 1 этап ремонта
+                                span.task_period 22.06.2017 - 25.06.2017
+
+                              dl.task_estimate_list
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+
+                                dt Грунтовка обоев
+                                dd 2 500 руб
+
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+
+                                dt.estimate_total.c_blue Итого
+                                dd.estimate_total 7 500 руб
+
+                            .task_estimate_block
+                              .task_estimate_date
+                                span.task_step 2 этап ремонта
+                                span.task_period 22.06.2017 - 25.06.2017
+
+                              dl.task_estimate_list
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+
+                                dt Грунтовка обоев
+                                dd 2 500 руб
+
+                                dt Демонтаж старых обоев
+                                dd 2 500 руб
+
+                                dt.estimate_total.c_blue Итого
+                                dd.estimate_total.c_blue 7 500 руб
+
+                            .task_estimate_block
+                              dl.task_estimate_list
+                                dt.grand_price.c_blue Общая сумма
+                                dd.grand_price.c_blue 9 500 руб
+
+                      .checkout_col
+                        .checkout_col_caption
+                          span.fl смета материалов
+
+                        .material_estimation_holder
+                          #materials_popup
+                            .material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            .material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            .material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            .material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки.  Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+
+                            .material_block
+                              .material_img
+
+                              .material_name Раковина Белла может быть в 2 строки. Раковина Белла может быть в 2 строки. Раковина Белла может быть в 2 строки. 
+
+                              .material_store
+                                a.material_link(href='#') Магазин Петрович
+
+                              dl.material_params
+                                dt Цена -
+                                dd
+                                  span._old.fw_b 31 590 Р
+
+                                dt Цена со скидкой -
+                                dd
+                                  span.c_blue.fw_b 31 590 Р
+                                  
+      +footer()
+
+      +popups()
+
+    +scripts()

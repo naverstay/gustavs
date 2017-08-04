@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'gustavs_icons';
-  src:  url('#{$icomoon-font-path}/gustavs_icons.eot?ounkgt');
-  src:  url('#{$icomoon-font-path}/gustavs_icons.eot?ounkgt#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/gustavs_icons.ttf?ounkgt') format('truetype'),
-    url('#{$icomoon-font-path}/gustavs_icons.woff?ounkgt') format('woff'),
-    url('#{$icomoon-font-path}/gustavs_icons.svg?ounkgt#gustavs_icons') format('svg');
+  src:  url('#{$icomoon-font-path}/gustavs_icons.eot?m4p2p5');
+  src:  url('#{$icomoon-font-path}/gustavs_icons.eot?m4p2p5#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/gustavs_icons.ttf?m4p2p5') format('truetype'),
+    url('#{$icomoon-font-path}/gustavs_icons.woff?m4p2p5') format('woff'),
+    url('#{$icomoon-font-path}/gustavs_icons.svg?m4p2p5#gustavs_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -64,6 +64,11 @@
 .i-arrow_left {
   &:before {
     content: $i-arrow_left;
+  }
+}
+.i-arrow_right {
+  &:before {
+    content: $i-arrow_right;
   }
 }
 .i-chevron_left {

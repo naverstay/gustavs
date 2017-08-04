@@ -23,6 +23,15 @@
     position: fixed;
     top: 0 !important;
   }
+
+  &._abs {
+    margin-left: 0 !important;
+  }
+
+  @include respond-to-max($content-max-w) {
+    width: $content-max-w;
+  }
+
 }
 
 .logo_block {
