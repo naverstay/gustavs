@@ -23,7 +23,10 @@ mixin header(index, lk, login)
     .section_inner.clearfix
       .logo_block
         a.logo(href='index.html')
-          img(src='i/logo.png')
+          - if (index)
+            img(src='i/logo.png')
+          - else
+            img(src='i/logo_g.png')
 
       -if (login)
         ul.user_menu
@@ -39,7 +42,7 @@ mixin header(index, lk, login)
               span +7 (495) 
               span.ff_med 800-06-09
           li
-            a.btn_v1.btn_blue_2.login_btn(href='#') Выход
+            a.btn_v1.btn_light_blue.login_btn(href='#') Выход
       -if (index)
         ul.main_menu
           li.menu_item
@@ -49,7 +52,7 @@ mixin header(index, lk, login)
               span.link_text.taskName Вид работы
           li.menu_item
             .input_w
-              input#date_header.datePicker._icon_before.f_input_v1.f_input(value='30 Июля, 2017' data-correspond='#date_inline')
+              input#date_header.datePicker._icon_before.f_input_v1.f_input(value='' data-correspond='#date_inline')
               span.btn_icon.c_blue
                 span.i-date
                 
@@ -67,7 +70,7 @@ mixin header(index, lk, login)
               span +7 (495) 
               span.ff_med 800-06-09
           li
-            a.btn_v1.btn_blue_2.login_btn(href='login.html') Вход
+            a.btn_v1.btn_light_blue.login_btn(href='login.html') Вход
           
       #menu_1.mega_menu.megaMenu
         ul.mega_m_list.taskList

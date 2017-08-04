@@ -367,8 +367,7 @@ $(function ($) {
 
   $('.datePicker').each(function (ind) {
     var dp = $(this);
-
-
+    
     dp.datepicker({
       dayNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
       dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
@@ -413,7 +412,7 @@ $(function ($) {
 
         toggleOverlay(false);
       }
-    });
+    }).datepicker("setDate", new Date());
   });
 
   initScrollBars();
