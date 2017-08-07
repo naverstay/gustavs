@@ -10,7 +10,6 @@ html {
 body {
   font: 14px/1.2 $Roboto;
   color: $default_t_color;
-  min-width: $content-max-w;
 }
 
 .hide {
@@ -37,7 +36,8 @@ body {
 .wrapper {
   position: relative;
   min-height: 100%;
-  max-width: 100%;
+  width: $content-max-w;
+  margin: 0 auto;
   padding-top: 90px;
   overflow: hidden;
 }
@@ -905,7 +905,7 @@ html .price_col_tabs {
     min-width: 80px;
   }
 
-  .price_section .price_box_expand & {
+  .price_section & {
     &:hover {
       background: #f3f8fc;
     }
@@ -937,7 +937,7 @@ html .price_col_tabs {
 
   .tab_content & {
     line-height: 1;
-    padding-top: 8px;
+    padding-top: 11px;
   }
 }
 
@@ -984,7 +984,12 @@ html .price_col_tabs {
 }
 
 .task_block_content {
+  clear: both;
 
+  .f_input.f_input_v2 {
+    background-color: transparent;
+  }
+  
   .price_box_expand & {
     display: none;
   }
