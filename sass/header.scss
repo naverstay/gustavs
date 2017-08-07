@@ -72,12 +72,11 @@
   @extend %clearfix;
   margin-left: -40px;
 
-  li {
+  > li {
     padding-left: 40px;
     float: left;
     width: 20%;
   }
-
 }
 
 .mega_m_unit {
@@ -93,7 +92,7 @@
   @include transition_all(color .3s);
   display: block;
   color: $default_t_color;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1;
   letter-spacing: -.05em;
 
