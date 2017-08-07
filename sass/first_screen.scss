@@ -939,6 +939,10 @@ html .price_col_tabs {
     line-height: 1;
     padding-top: 11px;
   }
+
+  .task_estimation & {
+    min-width: 80px;
+  }
 }
 
 .total_price_contact {
@@ -989,7 +993,7 @@ html .price_col_tabs {
   .f_input.f_input_v2 {
     background-color: transparent;
   }
-  
+
   .price_box_expand & {
     display: none;
   }
