@@ -1,3 +1,6 @@
+- var dev = true;
+- var dev = false;
+  
 mixin dev_head(page_title)
     head
         title=page_title
@@ -9,8 +12,9 @@ mixin dev_head(page_title)
         meta(name="format-detection", content="telephone=no")
         //-style
             include ../styles/main_global.css
-        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic', media='all')
-        link(rel='stylesheet', href='styles/main_global.css', media='all')
+        - if (dev)
+          link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic', media='all')
+          link(rel='stylesheet', href='styles/main_global.css', media='all')
 
 mixin loop_while(counter)
     -i=0;
@@ -441,6 +445,7 @@ mixin task_rm()
     a.gl_link._rm.rmTaskBtn(href='#') удалить
         
 mixin scripts()
+  - if (dev)
     script(src='js/jquery1.10.js')
     script(src='js/jquery-ui-1.11.4.js')
     script(src='js/jquery.mCustomScrollbar.min.js')
@@ -448,3 +453,7 @@ mixin scripts()
     script(src='js/jquery.validationEngine.js')
     script(src='js/jquery.validationEngine-ru.js')
     script(src='js/script.js')
+  - else
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic', media='all')
+    link(rel='stylesheet', href='styles/main_global.css', media='all')
+    script(src='js/all.min.js')

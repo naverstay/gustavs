@@ -4,7 +4,7 @@ html, body {
 
 html {
   overflow-y: scroll;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
   width: $content-max-w;
   margin: 0 auto;
   padding-top: 90px;
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 .gl_overlay {
