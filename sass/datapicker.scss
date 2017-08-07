@@ -303,6 +303,7 @@
   border: 1px solid $lines;
   border-radius: 0;
   position: relative;
+  display: none;
 
   &:after,
   &:before {
