@@ -189,8 +189,19 @@ body {
 }
 
 .step_section {
-  background: #fafcfe;
   padding: 20px 0 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10000px;
+    margin-left: -5000px;
+    left: 50%;
+    background: #fafcfe;
+  }
 }
 
 .step_block {
