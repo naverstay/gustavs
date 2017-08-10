@@ -86,8 +86,8 @@ $(function ($) {
 
         updateEstimation(target.attr('data-estimate'), function (data) {
 
-          var est_block = '<div class="task_estimation _active animated" id="' + id + '" data-estimate="' + id + '"><div class="price_row _active"><div class="fl"><div class="task_name">' +
-            data.task_name + '</div></div><div class="fr"><div class="task_block_toggle"><a class="gl_link _rm rmTaskBtn" href="#' + id + '"><span class="_off">удалить</span></a></div></div><div class="task_block_content"><div class="task_name">Площадь</div><div class="input_w"><div class="f_input_v2 f_input volumeControl _control_mode" data-unit="<span>м</span><sup>2</sup>,<span>м</span>,<span>шт</span>" data-active="0"><input class="volumeSize" value="20" type="hidden" data-min="1" data-max="1000" data-step="1"><input class="volumeUnit" value="м2" type="hidden"><span class="volumeVal"><input value="20" data-inputmask="\'alias\': \'numeric\', \'rightAlign\': false, \'allowMinus\': false, \'allowPlus\': false, \'autoGroup\': false, \'groupSeparator\': \'\', \'autoUnmask\': true, \'digits\': 1, \'placeholder\': \'0\', \'digitsOptional\': false"><span class="unitSwitcher"><span>м</span><sup>2</sup></span></span><span class="btn_v3 counter_btn _minus valMinus"></span><span class="btn_v3 counter_btn _plus valPlus"></span></div></div></div></div>' +
+          var est_block = '<div class="task_estimation _active animated" id="' + id + '" data-estimate="' + id + '"><div class="price_row"><div class="fl"><div class="task_name">' +
+            data.task_name + '</div></div><div class="fr"><div class="task_block_content"><div class="task_name">Площадь</div><div class="input_w"><div class="f_input_v2 f_input volumeControl _control_mode" data-unit="<span>м</span><sup>2</sup>,<span>м</span>,<span>шт</span>" data-active="0"><input class="volumeSize" value="20" type="hidden" data-min="1" data-max="1000" data-step="1"><input class="volumeUnit" value="м2" type="hidden"><span class="volumeVal"><input value="20" data-inputmask="\'alias\': \'numeric\', \'rightAlign\': false, \'allowMinus\': false, \'allowPlus\': false, \'autoGroup\': false, \'groupSeparator\': \'\', \'autoUnmask\': true, \'digits\': 1, \'placeholder\': \'0\', \'digitsOptional\': false"><span class="unitSwitcher"><span>м</span><sup>2</sup></span></span><span class="btn_v3 counter_btn _minus valMinus"></span><span class="btn_v3 counter_btn _plus valPlus"></span></div></div></div><div class="task_block_toggle"><a class="gl_link _rm rmTaskBtn" href="#' + id + '"><span class="_off">удалить</span></a></div></div></div>' +
             '<div class="task_estimate_block"><div class="task_estimate_date"><span class="task_step">' + data.stage + '</span><span class="task_period">' +
             data.date_start + ' - ' +
             data.date_finish + '</span></div><dl class="task_estimate_list">';
@@ -325,7 +325,9 @@ $(function ($) {
       var firedEl = $(this), collapse = firedEl.toggleClass('_opened').next('.expandBlock');
 
       collapse.slideToggle(600, function () {
-        firedEl.closest('.mCSB').mCustomScrollbar("scrollTo", collapse);
+        if (firedEl.closest('.mCSB').length) {
+          firedEl.closest('.mCSB').mCustomScrollbar("scrollTo", collapse);
+        }
       });
 
       return false;
@@ -372,7 +374,7 @@ $(function ($) {
 
   $('.datePicker').each(function (ind) {
     var dp = $(this);
-    
+
     dp.datepicker({
       dayNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
       dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
@@ -613,7 +615,16 @@ function initScrollBars() {
       preventDefault: true
     },
     theme: "dark",
-    scrollEasing: "linear"
+    scrollEasing: "linear",
+    callbacks: {
+      whileScrolling: function () {
+        var el = $(this);
+        
+        if ((this.tagName).toUpperCase() == 'BODY') {
+          headerFix(el.find('.mCSB_container').css('top').replace(/\D/, '') * 1);
+        }
+      }
+    }
   });
 }
 
@@ -699,7 +710,7 @@ $(window).on('scroll', function () {
 
 });
 
-function headerFix() {
+function headerFix(top) {
 
   if ($(window).width() <= 960) {
     header.css('margin-left', -getScrollLeft());
@@ -708,7 +719,7 @@ function headerFix() {
   }
 
   if (price_section.length) {
-    if (getScrollTop() + header.outerHeight() < price_section.offset().top) {
+    if ((top || getScrollTop()) + header.outerHeight() < price_section.offset().top) {
       header.css('top', price_section.offset().top - header.outerHeight()).addClass('_fixed').removeClass('_abs');
     } else {
       header.css('top', price_section.offset().top - header.outerHeight()).removeClass('_fixed').addClass('_abs');
@@ -718,9 +729,13 @@ function headerFix() {
 }
 
 function getScrollTop() {
+  //return body_var.scrollTop();
+
   return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 }
 
 function getScrollLeft() {
+  //return body_var.scrollLeft();
+
   return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
 }
