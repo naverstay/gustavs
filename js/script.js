@@ -86,8 +86,8 @@ $(function ($) {
 
         updateEstimation(target.attr('data-estimate'), function (data) {
 
-          var est_block = '<div class="task_estimation _active animated" id="' + id + '" data-estimate="' + id + '"><div class="price_row"><div class="fl"><div class="task_name">' +
-            data.task_name + '</div></div><div class="fr"><div class="task_block_content"><div class="task_name">Площадь</div><div class="input_w"><div class="f_input_v2 f_input volumeControl _control_mode" data-unit="<span>м</span><sup>2</sup>,<span>м</span>,<span>шт</span>" data-active="0"><input class="volumeSize" value="20" type="hidden" data-min="1" data-max="1000" data-step="1"><input class="volumeUnit" value="м2" type="hidden"><span class="volumeVal"><input value="20" data-inputmask="\'alias\': \'numeric\', \'rightAlign\': false, \'allowMinus\': false, \'allowPlus\': false, \'autoGroup\': false, \'groupSeparator\': \'\', \'autoUnmask\': true, \'digits\': 1, \'placeholder\': \'0\', \'digitsOptional\': false"><span class="unitSwitcher"><span>м</span><sup>2</sup></span></span><span class="btn_v3 counter_btn _minus valMinus"></span><span class="btn_v3 counter_btn _plus valPlus"></span></div></div></div><div class="task_block_toggle"><a class="gl_link _rm rmTaskBtn" href="#' + id + '"><span class="_off">удалить</span></a></div></div></div>' +
+          var est_block = '<div class="task_estimation _active animated" id="' + id + '" data-estimate="' + id + '"><div class="price_row _active"><div class="fl"><div class="task_name">' +
+            data.task_name + '</div></div><div class="fr"><div class="task_block_toggle"><a class="gl_link _rm rmTaskBtn" href="#' + id + '"><span class="_off">удалить</span></a></div></div><div class="task_block_content"><div class="task_name">Площадь</div><div class="input_w"><div class="f_input_v2 f_input volumeControl _control_mode" data-unit="<span>м</span><sup>2</sup>,<span>м</span>,<span>шт</span>" data-active="0"><input class="volumeSize" value="20" type="hidden" data-min="1" data-max="1000" data-step="1"><input class="volumeUnit" value="м2" type="hidden"><span class="volumeVal"><input value="20" data-inputmask="\'alias\': \'numeric\', \'rightAlign\': false, \'allowMinus\': false, \'allowPlus\': false, \'autoGroup\': false, \'groupSeparator\': \'\', \'autoUnmask\': true, \'digits\': 1, \'placeholder\': \'0\', \'digitsOptional\': false"><span class="unitSwitcher"><span>м</span><sup>2</sup></span></span><span class="btn_v3 counter_btn _minus valMinus"></span><span class="btn_v3 counter_btn _plus valPlus"></span></div></div></div></div>' +
             '<div class="task_estimate_block"><div class="task_estimate_date"><span class="task_step">' + data.stage + '</span><span class="task_period">' +
             data.date_start + ' - ' +
             data.date_finish + '</span></div><dl class="task_estimate_list">';
@@ -621,7 +621,7 @@ function initScrollBars() {
         var el = $(this);
         
         if ((this.tagName).toUpperCase() == 'BODY') {
-          headerFix(el.find('.mCSB_container').css('top').replace(/\D/, '') * 1);
+          headerFix(1 * el.find('.mCSB_container').css('top').replace(/\D/g, ''));
         }
       }
     }
@@ -706,7 +706,7 @@ function all_dialog_close_gl() {
 
 $(window).on('scroll', function () {
 
-  headerFix();
+  //headerFix();
 
 });
 
