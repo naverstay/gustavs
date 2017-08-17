@@ -1,5 +1,9 @@
 var body_var,
+  notifier,
+  next_note = '',
   price_section,
+  checkout_form,
+  forced = false,
   header,
   wnd,
   total_price = 0,
@@ -29,7 +33,9 @@ $(function ($) {
   wnd = $(window);
   body_var = $('body');
   price_section = $('.priceSection');
+  checkout_form = $('.checkoutForm');
   header = $('.header');
+  notifier = $('<div class="notify_holder"/>');
 
   body_var
     .delegate('.popupClose', 'click', function () {
@@ -42,6 +48,11 @@ $(function ($) {
       $('.addTaskBtn').filter(function () {
         return $(this).attr('href') == btn.attr('href');
       }).click();
+
+      return false;
+    })
+    .delegate('.addTaskRow', 'click', function () {
+      $(this).find('.addTaskBtn').click();
 
       return false;
     })
@@ -434,6 +445,8 @@ $(function ($) {
 
   headerFix();
 
+  appenNotifier();
+
   all_dialog_close();
 
   $('.checkoutForm').on('submit', function (e) {
@@ -618,11 +631,64 @@ function initScrollBars() {
         var el = $(this);
 
         if ((this.tagName).toUpperCase() == 'BODY') {
-          headerFix(1 * el.find('.mCSB_container').css('top').replace(/\D/g, ''));
+          var top = 1 * el.find('.mCSB_container').css('top').replace(/\D/g, '');
+
+          headerFix(top);
+
+          forceNotification(top);
+
         }
       }
     }
   });
+}
+
+function appenNotifier() {
+
+  body_var.append(notifier);
+
+  startNotifications();
+
+}
+
+function startNotifications() {
+
+  $.getJSON("notifications.json", function () {
+
+  })
+    .done(function (data) {
+      if (data.success) {
+        var note = $('<div class="note"/>'), count = data.notes.length - 1;
+
+        next_note = data.notes[Math.floor(Math.random() * count)].note;
+
+        setInterval(function () {
+          showNote(data.notes[Math.floor(Math.random() * count)].note);
+        }, 10000);
+      }
+    })
+    .error(function () {
+      console.log("error");
+    })
+    .always(function () {
+
+    });
+
+}
+
+function forceNotification() {
+  if (!forced && checkout_form && checkout_form.offset().top < 50) {
+    forced = true;
+    showNote(next_note);
+  }
+}
+
+function showNote(txt) {
+  var note = $('<div class="note"/>');
+
+  note.html(txt);
+
+  notifier.html(note);
 }
 
 function initValidation() {
