@@ -641,6 +641,55 @@ body {
   padding: 0 8px;
 }
 
+.total_price_cite {
+  position: relative;
+  background: #ecf5ff;
+  padding: 12px 50px 14px 45px;
+  color: #464748;
+  clear: both;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 17px 0 -25px;
+  letter-spacing: -.04em; 
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: url(../i/cite_border.png) repeat-x 0 0;
+  }
+
+  p {
+    margin-bottom: 10px;
+    letter-spacing: -.05em;
+
+    &:first-child {
+      position: relative;
+
+      &:after,
+      &:before {
+        position: absolute;
+        top: -10px;
+        color: #215cd4;
+        font: 60px/1 $ModernRegular;
+      }
+
+      &:before {
+        content: '“';
+        left: -30px;
+      }
+
+      &:after {
+        content: '“';
+        right: -30px;
+      }
+    }
+  }
+}
+
 .total_price_list {
   font: 13px/16px $Roboto;
 
@@ -1020,7 +1069,8 @@ html .price_col_tabs {
   position: relative;
   float: left;
   padding-top: 2px;
-
+  margin-bottom: 17px;
+  
   .contact_icon {
     position: absolute;
     left: 25px;
@@ -1056,6 +1106,7 @@ html .price_col_tabs {
   float: left;
   padding-left: 5px;
   padding-top: 2px;
+  margin-bottom: 17px;
 }
 
 .task_block_content {
