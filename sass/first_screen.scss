@@ -466,7 +466,7 @@ body {
 
 .review_slider_w {
   position: relative;
-  padding: 55px 0 45px;
+  padding: 50px 0;
   margin: 0 -1000px;
   font-size: 0;
   white-space: nowrap;
@@ -503,7 +503,7 @@ body {
   .review_slide {
     width: 450px;
     padding-left: 16px;
-    margin-bottom: 10px;
+    margin: 5px 0;
     //float: left;
     display: inline-block;
     vertical-align: top;
@@ -525,6 +525,31 @@ body {
   border: 1px solid #d4e4f5;
   padding: 25px 20px;
   background: #fff;
+  position: relative;
+  
+  &:after,
+  &:before {
+    @extend %translate3d;
+    @include transition_all(opacity .3s, top .3s, bottom .3s, left .3s, right .3s);
+    content: '';
+    position: absolute;
+    width: 52px;
+    height: 34px;
+    border: solid #0566ca;
+    opacity: 0;
+  }
+
+  &:before {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 2px 2px;
+  }
+
+  &:after {
+    top: 0;
+    right: 0;
+    border-width: 2px 2px 0 0;
+  }
 
   p {
     clear: both;
@@ -534,6 +559,20 @@ body {
     letter-spacing: -.05em;
     height: 4em * 1.65;
     overflow: hidden;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+      bottom: -6px;
+      left: -6px;
+    }
+
+    &:after {
+      opacity: 1;
+      top: -6px;
+      right: -6px;
+    }
   }
 }
 
@@ -657,8 +696,8 @@ body {
   font-size: 14px;
   line-height: 18px;
   margin: 17px 0 -25px;
-  letter-spacing: -.04em; 
-  
+  letter-spacing: -.04em;
+
   &:before {
     content: '';
     position: absolute;
@@ -1077,7 +1116,7 @@ html .price_col_tabs {
   float: left;
   padding-top: 2px;
   margin-bottom: 17px;
-  
+
   .contact_icon {
     position: absolute;
     left: 25px;

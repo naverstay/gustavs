@@ -812,7 +812,7 @@ function startNotifications() {
 }
 
 function forceNotification() {
-  if (!forced && checkout_form && checkout_form.offset().top < 50) {
+  if (!forced && checkout_form.length && checkout_form.offset().top < 50) {
     forced = true;
     showNote(next_note);
   }
