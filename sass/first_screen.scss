@@ -460,27 +460,82 @@ body {
   padding: 50px 0;
 }
 
+.review_slider_w {
+  position: relative;
+  padding: 55px 0 45px;
+  margin: 0 -1000px;
+  font-size: 0;
+  white-space: nowrap;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 10000%;
+    left: 50%;
+    margin-left: -5000px;
+    top: 0;
+    bottom: 0;
+    background: #fafcfe;
+  }
+
+  .slick-track {
+    @extend %clearfix;
+  }
+
+  .review_list {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
 .review_list {
   @extend %clearfix;
   margin-left: -40px;
   padding-bottom: 5px;
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
 
-  li {
-    padding-left: 40px;
-    float: left;
-    width: 32.7%;
-    margin-bottom: 30px;
+  .review_slide {
+    width: 450px;
+    padding-left: 16px;
+    margin-bottom: 10px;
+    //float: left;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+  }
+
+  &.review_list_v2 {
+    margin-left: -265px;
+  }
+
+  &._clone {
+    margin-left: 0;
   }
 }
 
 .review_item {
-  padding-right: 15px;
+  width: 434px;
+  border: 1px solid #d4e4f5;
+  padding: 25px 20px;
+  background: #fff;
 
   p {
+    clear: both;
+    margin-top: 10px;
     margin-bottom: 20px;
     line-height: 1.65;
     letter-spacing: -.05em;
   }
+}
+
+.review_author_name {
+  float: left;
+}
+
+.review_author_date {
+  float: right;
 }
 
 .review_author {
