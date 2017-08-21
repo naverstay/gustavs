@@ -77,7 +77,7 @@ $(function ($) {
       if (target.length) {
         target.removeClass('_active').addClass('_removed');
 
-        $('#estimations').closest('.mCSB').mCustomScrollbar("scrollTo", target, {scrollInertia: 1});
+        $('#estimations').closest('.mCSB').mCustomScrollbar("scrollTo", target, {scrollInertia: 1000});
 
         setTimeout(function () {
           row.removeClass('_active');
@@ -132,7 +132,7 @@ $(function ($) {
             '<dt class="estimate_total">Сумма</dt><dd class="estimate_total">' + formatPrice(work_price) + ' руб</dd>' +
             '</dl></div></div>';
 
-          $('#estimations').append(est_block).closest('.mCSB').mCustomScrollbar("scrollTo", $('#' + id));
+          $('#estimations').append(est_block).closest('.mCSB').mCustomScrollbar("scrollTo", "bottom");
 
           clone.addClass('_clone').appendTo(row);
 
@@ -205,7 +205,7 @@ $(function ($) {
       var link = $(this), target = $(link.attr('href'));
 
       if (target.length) {
-        docScrollTo(target.offset().top, 1200);
+        docScrollTo(target, 1200);
       }
 
       return false;
@@ -220,7 +220,7 @@ $(function ($) {
 
       if (target.length) {
         checkout_popup.dialog('close');
-        docScrollTo(target.offset().top, 1200);
+        docScrollTo(target, 1200);
       }
 
       return false;
@@ -659,7 +659,7 @@ function cloneWorks() {
 
 function docScrollTo(pos, speed, callback) {
 
-  body_var.mCustomScrollbar("scrollTo", pos);
+  body_var.mCustomScrollbar("scrollTo", pos, {scrollInertia: speed});
 
 }
 

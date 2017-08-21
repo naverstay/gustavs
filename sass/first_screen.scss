@@ -38,6 +38,10 @@ body {
   float: right;
 }
 
+.cb {
+  clear: both;
+}
+
 .wrapper {
   position: relative;
   min-height: 100%;
@@ -517,6 +521,7 @@ body {
 
 .review_item {
   width: 434px;
+  height: 154px;
   border: 1px solid #d4e4f5;
   padding: 25px 20px;
   background: #fff;
@@ -527,6 +532,8 @@ body {
     margin-bottom: 20px;
     line-height: 1.65;
     letter-spacing: -.05em;
+    height: 4em * 1.65;
+    overflow: hidden;
   }
 }
 
