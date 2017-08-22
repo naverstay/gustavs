@@ -48,10 +48,10 @@ $(function ($) {
     .delegate('.sliderHolder .review_item', 'mouseenter', function () {
 
       Reviews.pause();
-      
+
     })
     .delegate('.sliderHolder .review_item', 'mouseleave', function () {
-  
+
       Reviews.resume();
 
     })
@@ -458,7 +458,9 @@ $(function ($) {
 
   headerFix();
 
-  appenNotifier();
+  if (body_var.hasClass('index')) {
+    appenNotifier();
+  }
 
   initReviewSlider();
 
