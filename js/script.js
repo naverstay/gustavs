@@ -4,6 +4,9 @@ var body_var,
   price_section,
   checkout_form,
   forced = false,
+  paused = false,
+  box,
+  tween,
   header,
   wnd,
   Reviews,
@@ -13,6 +16,7 @@ var body_var,
   work_price = 0,
   material_price = 0,
   material_share = 0,
+  notification_timer = 30000,
   global_window_Height,
   checkout_popup,
   inputMaskEvents = {
@@ -47,12 +51,12 @@ $(function ($) {
     })
     .delegate('.sliderHolder .review_item', 'mouseenter', function () {
 
-      Reviews.pause();
+      tween.pause();
 
     })
     .delegate('.sliderHolder .review_item', 'mouseleave', function () {
 
-      Reviews.resume();
+      tween.resume();
 
     })
     .delegate('.rmTaskBtn', 'click', function () {
@@ -481,18 +485,21 @@ $(function ($) {
 });
 
 function scrollReview(r, cb) {
-  var seconds_per_slide = 10000, firstRow = r.find('.reviewSlider._main');
+  var seconds_per_slide = 300, firstRow = r.find('.reviewSlider._main');
 
-  r.animate({'margin-left': -firstRow.outerWidth()}, firstRow.find('.review_slide').length * seconds_per_slide, "linear", function () {
-    r.css('margin-left', 0);
-
-    if (typeof cb == 'function') {
-      cb();
-    }
-
-    scrollReview(r);
+  box = r[0];
+  
+  tween = TweenMax.to(box, seconds_per_slide, {
+    x: (-firstRow.outerWidth()) + 'px',
+    repeat: -1,
+    onRepeat: onRepeat,
+    repeatDelay: 0,
+    ease: Linear.easeNone
   });
 
+  function onRepeat() {
+    box.style = '';
+  }
 }
 
 function initReviewSlider() {
@@ -507,97 +514,9 @@ function initReviewSlider() {
   reviewSlider.addClass('_main');
   reviewSlider2.addClass('_main');
 
-
   scrollReview(Reviews, function () {
     console.log('restart');
   });
-
-
-  //$('.sliderHolder').mCustomScrollbar({
-  //  documentTouchScroll: true,
-  //  mouseWheel: {
-  //    preventDefault: true
-  //  },
-  //  scrollInertia: 10000,
-  //  axis: 'x',
-  //  theme: "dark",
-  //  scrollEasing: "linear",
-  //  callbacks: {
-  //    whileScrolling: function () {
-  //      var el = $(this);
-  //
-  //
-  //    }
-  //  }
-  //}).mCustomScrollbar("scrollTo", 1500);
-
-
-  /*  reviewSlider = new Swiper('.reviewSlider', {
-      speed: 7000,
-      autoplay: 1,
-      slidesPerView: 'auto',
-      simulateTouch: false,
-      longSwipes: false,
-      loop: true,
-      spaceBetween: 0,
-      freeMode: true
-    });
-  
-    reviewSlider2 = new Swiper('.reviewSlider2', {
-      speed: 7000,
-      autoplay: 1,
-      slidesPerView: 'auto',
-      simulateTouch: false,
-      longSwipes: false,
-      loop: true,
-      spaceBetween: 0,
-      freeMode: true
-    });
-  
-    reviewSlider.startAutoplay();
-  
-    reviewSlider2.startAutoplay();*/
-
-  //$('.reviewSlider').slick({
-  //  infinite: true,
-  //  speed: 10000,
-  //  autoplaySpeed: 0,
-  //  autoplay: true,
-  //  variableWidth: true,
-  //  dots: false,
-  //  arrows: false,
-  //  cssEase: 'linear',
-  //  //rows: 2,
-  //  //slidesPerRow: 5,
-  //  zIndex: 0,
-  //  initialSlide: 0,
-  //  //centerPadding: '0',
-  //  slide: '.reviewSlider .review_slide',
-  //  //slidesToShow: 1,
-  //  //slidesToScroll: 1,
-  //  touchThreshold: 10
-  //});
-  //
-  //$('.reviewSlider2').slick({
-  //  infinite: true,
-  //  speed: 10000,
-  //  autoplaySpeed: 0,
-  //  autoplay: true,
-  //  variableWidth: true,
-  //  dots: false,
-  //  arrows: false,
-  //  cssEase: 'linear',
-  //  //rows: 2,
-  //  //slidesPerRow: 5,
-  //  zIndex: 0,
-  //  initialSlide: 0,
-  //  //centerPadding: '0',
-  //  slide: '.reviewSlider2 .review_slide',
-  //  //slidesToShow: 1,
-  //  //slidesToScroll: 1,
-  //  touchThreshold: 10
-  //});
-
 }
 
 function animateOnce(el, addClass, removeClass) {
@@ -801,7 +720,7 @@ function startNotifications() {
 
         setInterval(function () {
           showNote(data.notes[Math.floor(Math.random() * count)].note);
-        }, 10000);
+        }, notification_timer);
       }
     })
     .error(function () {

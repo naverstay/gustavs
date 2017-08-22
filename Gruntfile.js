@@ -27,7 +27,7 @@ module.exports = function (grunt) {
             'js/jquery1.10.js',
             'js/jquery-ui-1.11.4.js',
             'js/jquery.mCustomScrollbar.min.js',
-            'js/jquery.pause.min.js',
+            'js/TweenMax.min.js',
             'js/jquery.inputmask.bundle.js',
             'js/jquery.validationEngine.js',
             'js/jquery.validationEngine-ru.js',

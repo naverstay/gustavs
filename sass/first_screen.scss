@@ -243,7 +243,11 @@ body {
 
     &._wide {
       width: 100%;
-      margin: -15px 0 20px;
+      margin: -35px 0 20px;
+
+      .step_index {
+        top: -30px;
+      }
     }
   }
 }
@@ -306,6 +310,7 @@ body {
   font: 36px $GothamProMedium;
   margin-bottom: 65px;
   letter-spacing: -.02em;
+  position: relative;
 }
 
 .why_section {
