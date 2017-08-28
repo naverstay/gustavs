@@ -173,11 +173,14 @@
 }
 
 .user_m_link {
+  overflow: hidden;
   display: inline-block;
   vertical-align: middle;
   color: $default_t_color;
   font: 16px/1.2 $GothamProRegular;
   letter-spacing: .095em;
+  padding: 8px 8px 8px 0;
+  margin: -8px -8px -8px 0;
 
   .footer & {
     @include transition_all(opacity .3s);
@@ -186,6 +189,45 @@
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+.blur_parent {
+  position: relative;
+}
+
+.blur_text {
+  @extend %hor_vert_centr;
+  position: absolute;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  z-index: 1;
+  text-transform: none;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: -300px;
+    right: -300px;
+    top: -100px;
+    bottom: -100px;
+  }
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  
+  ._unblur & {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
   }
 }
 

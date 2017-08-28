@@ -1,5 +1,5 @@
 - var dev = true;
-- var dev = false;
+//- var dev = false;
   
 mixin dev_head(page_title)
     head
@@ -36,16 +36,24 @@ mixin header(index, lk, login)
       -if (login)
         ul.user_menu
           li
-            a.user_m_link(href='tel:+74958000609')
+            a.user_m_link(href='#')
               span +7 (495) 
-              span.ff_med 800-06-09
+              span.ff_med 
+                span 800-
+                span.blur_parent 
+                  span.blur_text.blrBtn Показать номер
+                  span.blur 06-09
         
       -if (lk)
         ul.user_menu
           li
-            a.user_m_link(href='tel:+74958000609')
+            a.user_m_link(href='#')
               span +7 (495) 
-              span.ff_med 800-06-09
+              span.ff_med
+                span 800-
+                span.blur_parent
+                  span.blur_text.blrBtn Показать номер
+                  span.blur 06-09
           li
             a.btn_v1.btn_light_blue.login_btn(href='#') Выход
       -if (index)
@@ -71,9 +79,13 @@ mixin header(index, lk, login)
             
         ul.user_menu
           li
-            a.user_m_link(href='tel:+74958000609')
+            a.user_m_link(href='#')
               span +7 (495) 
-              span.ff_med 800-06-09
+              span.ff_med
+                span 800-
+                span.blur_parent
+                  span.blur_text.blrBtn Показать номер
+                  span.blur 06-09
           li
             a.btn_v1.btn_light_blue.login_btn(href='login.html') Вход
           
@@ -404,7 +416,11 @@ mixin footer()
         li
           a.user_m_link(href='tel:+74958000609')
             span +7 (495) 
-            span.ff_med 800-06-09
+            span.ff_med
+              span 800-
+              span.blur_parent
+                span.blur_text.blrBtn Показать номер
+                span.blur 06-09
         li
           a.user_m_link(href='#')
             span.ff_med Вход

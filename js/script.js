@@ -344,6 +344,17 @@ $(function ($) {
 
       return false;
     })
+    .delegate('.blrBtn', 'click', function (e) {
+      var btn = $(this).closest('.user_m_link');
+
+      $(this).remove();
+
+      btn.toggleClass('_unblur').attr('href', 'tel:+' + btn.text().replace(/\D/g, ''));
+
+      goalFunc();
+      
+      return false;
+    })
     .delegate('.contentOverview', 'click', function () {
       animateOnce($('.workSwitcher'), 'shake');
 
@@ -466,6 +477,8 @@ $(function ($) {
     appenNotifier();
   }
 
+  //blurPhone('.user_m_link .ff_med', 'phorme');
+
   initReviewSlider();
 
   all_dialog_close();
@@ -488,7 +501,7 @@ function scrollReview(r, cb) {
   var seconds_per_slide = 300, firstRow = r.find('.reviewSlider._main');
 
   box = r[0];
-  
+
   tween = TweenMax.to(box, seconds_per_slide, {
     x: (-firstRow.outerWidth()) + 'px',
     repeat: -1,
@@ -857,4 +870,46 @@ function getScrollLeft() {
   //return body_var.scrollLeft();
 
   return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+}
+
+function goalFunc() {
+  console.log('сюда вставить таргеты аналитики');
+}
+
+function getGoal(goalWord) {
+  var goals = {
+    '/spb/': 'pokasat-nomer-v-@-nasha-gasel',
+    '/spb/my/': 'pokasat-nomer-v-@-svoya-gasel',
+    '/spb/spec/': 'pokasat-nomer-v-@-spec-avto',
+    '/msk/': 'pokasat-nomer-v-@-nasha-gasel-msk',
+    '/msk/spec/': 'pokasat-nomer-v-@-spec-avto-msk'
+  };
+  var path = window.location.pathname;
+  var goal = goals[path];
+  if (goal) {
+    goal = goal.replace("@", goalWord);
+  }
+  return goal ? goal : false;
+}
+
+function blurPhone(targetClass, goalWord) {
+  var phoneEl = $(targetClass);
+  var phone = phoneEl.text().trim();
+  var visiblePart = phone.substring(0, 12);
+  var hiddenPart = phone.substring(12, phone.length);
+  var word = goalWord;
+
+  var onClick = function (e) {
+    e.preventDefault();
+    var goal = getGoal(word);
+    if (goal) {
+      yaCounter38200060.reachGoal(goal);
+    }
+    phoneEl.text(phone);
+  };
+  phoneEl.one('click', onClick);
+
+  return function blur() {
+    phoneEl.html($('<span>' + visiblePart + '<span class="show-phone-btn">Показать номер</span> <span class="blur">' + hiddenPart + '</span></span>'))
+  }();
 }
