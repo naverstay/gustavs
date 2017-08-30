@@ -401,6 +401,11 @@ mixin popups()
                     span.c_blue.fw_b 31 590 Р
                     
 mixin footer()
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <filter id="blur">
+  <feGaussianBlur stdDeviation="4" />
+  </filter>
+  </svg>
   .footer
     .section_inner
       ul.copyrights
