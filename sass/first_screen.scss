@@ -970,14 +970,16 @@ html .price_col_tabs {
 }
 
 .price_col_caption {
-  @extend %clearfix;
-  font: 700 12px/30px $Roboto;
+  @extend %clearfix; 
   margin-bottom: 8px;
   padding: 10px 23px 8px 0;
   text-transform: uppercase;
   color: $blue;
   border-bottom: 1px solid $lines;
-
+  font: 800 14px/30px $Roboto;
+  position: relative;
+  opacity: .8;
+  
   span {
     display: inline-block;
     vertical-align: middle;
