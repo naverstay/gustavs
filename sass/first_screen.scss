@@ -783,7 +783,13 @@ body {
     }
 
     span {
+      display: inline-block;
+      vertical-align: middle;
 
+      &.dapeticker_w {
+        margin-right: -100px;
+      }
+      
       + span {
         padding-left: 3px;
       }
@@ -1626,7 +1632,6 @@ html .price_col_tabs {
     font-size: 26px;
     line-height: 1;
   }
-
 }
 
 .congratulation_title {
